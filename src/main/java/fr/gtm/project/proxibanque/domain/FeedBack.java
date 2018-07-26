@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "feedback")
+@Table(name = "feedBack")
 public class FeedBack {
 
 	@Id
@@ -20,7 +20,8 @@ public class FeedBack {
 	private Integer id;
 
 	private String feedBackText;
-	private boolean feedback;
+	
+	private boolean feedBack;
 
 	@ManyToOne
 	@JoinColumn(name="idSurvey", nullable=false)
@@ -50,7 +51,7 @@ public class FeedBack {
 		super();
 		this.id = id;
 		this.feedBackText = feedBackText;
-		this.feedback = feedback;
+		this.feedBack = feedback;
 		this.survey = survey;
 		this.client = client;
 	}
@@ -72,7 +73,7 @@ public class FeedBack {
 	}
 
 	public boolean isFeedback() {
-		return this.feedback;
+		return this.feedBack;
 	}
 
 	public void setClient(final Client client) {
@@ -80,7 +81,7 @@ public class FeedBack {
 	}
 
 	public void setFeedback(final boolean feedback) {
-		this.feedback = feedback;
+		this.feedBack = feedback;
 	}
 
 	public void setFeedBackText(final String feedBackText) {
@@ -97,7 +98,7 @@ public class FeedBack {
 
 	@Override
 	public String toString() {
-		return "FeedBack [id=" + this.id + ", feedBackText=" + this.feedBackText + ", feedback=" + this.feedback + ", survey=" + this.survey
+		return "FeedBack [id=" + this.id + ", feedBackText=" + this.feedBackText + ", feedBack=" + this.feedBack + ", survey=" + this.survey
 				+ ", client=" + this.client + "]";
 	}
 }
