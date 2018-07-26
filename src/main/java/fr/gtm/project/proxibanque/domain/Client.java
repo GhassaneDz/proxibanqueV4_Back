@@ -19,22 +19,17 @@ import org.hibernate.validator.constraints.Length;
 public class Client {
 
 	@Id
-	@Column(nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(nullable = false)
 	private String firstName;
-	@Column(nullable = false)
 	private String lastName;
-	@Column
 	private String tel;
-	@Column
 	private String email;
-	@Length(max = 8, message = "Le titre doit comporter entre 6 et 255 caractères.")
+	@Length(max = 8, message = "L'identifiant doit comporter 8 caractères")
 	private String number;
 
 	/**
-	 *
+	 * Getter de l'id du Client
 	 * @return L'id du client
 	 */
 	public Integer getId() {
