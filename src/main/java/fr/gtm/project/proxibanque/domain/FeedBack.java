@@ -1,11 +1,31 @@
 package fr.gtm.project.proxibanque.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "feedback")
 public class FeedBack {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+
 	private String feedBackText;
 	private boolean feedback;
+
+	@ManyToOne
+	@JoinColumn(name="idSurvey", nullable=false)
 	private Survey survey;
+
+	@OneToOne
+	@JoinColumn(name = "idClient", referencedColumnName = "id")
 	private Client client;
 
 	/**
