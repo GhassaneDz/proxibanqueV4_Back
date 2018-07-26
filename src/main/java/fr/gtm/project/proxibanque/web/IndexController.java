@@ -10,7 +10,7 @@ public class IndexController {
 
 	@RequestMapping({ "/", "/index" })
 	public ModelAndView index() {
-		final ModelAndView mav = new ModelAndView("index");
+		final ModelAndView mav = new ModelAndView("index.html");
 		return mav;
 	}
 	
