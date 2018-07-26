@@ -13,21 +13,21 @@ import javax.persistence.Table;
 @Table(name = "feedBack")
 public class FeedBack {
 
+	@OneToOne
+	@JoinColumn(name = "idClient", referencedColumnName = "id")
+	private Client client;
+
+	private boolean feedBack;
+
+	private String feedBackText;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private String feedBackText;
-	
-	private boolean feedBack;
-
 	@ManyToOne
-	@JoinColumn(name="idSurvey", nullable=false)
+	@JoinColumn(name = "idSurvey", nullable = false)
 	private Survey survey;
-
-	@OneToOne
-	@JoinColumn(name = "idClient", referencedColumnName = "id")
-	private Client client;
 
 	/**
 	 *
@@ -44,7 +44,8 @@ public class FeedBack {
 	 * @param survey
 	 * @param client
 	 */
-	public FeedBack(final Integer id, final String feedBackText, final boolean feedback, final Survey survey, final Client client) {
+	public FeedBack(final Integer id, final String feedBackText, final boolean feedback, final Survey survey,
+			final Client client) {
 		super();
 		this.id = id;
 		this.feedBackText = feedBackText;
@@ -95,7 +96,7 @@ public class FeedBack {
 
 	@Override
 	public String toString() {
-		return "FeedBack [id=" + this.id + ", feedBackText=" + this.feedBackText + ", feedBack=" + this.feedBack + ", survey=" + this.survey
-				+ ", client=" + this.client + "]";
+		return "FeedBack [id=" + this.id + ", feedBackText=" + this.feedBackText + ", feedBack=" + this.feedBack
+				+ ", survey=" + this.survey + ", client=" + this.client + "]";
 	}
 }

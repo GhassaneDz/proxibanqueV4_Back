@@ -9,42 +9,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.gtm.project.proxibanque.business.ClientService;
-import fr.gtm.project.proxibanque.domain.Client;
+import fr.gtm.project.proxibanque.business.FeedbackService;
+import fr.gtm.project.proxibanque.domain.FeedBack;
 
 @RestController
-@RequestMapping("/client")
-public class ClientRestController {
+@RequestMapping("/feedback")
+public class FeedBackRestController {
 
 	@Autowired
-	private ClientService service;
+	private FeedbackService FBservice;
 
 	@RequestMapping("/create/{id}")
-	public Client create(@PathVariable final Client client) {
-		return this.service.create(client);
+	public FeedBack create(@PathVariable final FeedBack feedBack) {
+		return this.FBservice.create(feedBack);
 	}
 
 	@RequestMapping("/delete/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable final Integer id) {
-		this.service.delete(id);
+		this.FBservice.delete(id);
 	}
 
 	@RequestMapping("/list")
-	public List<Client> list() {
-		return this.service.list();
+	public List<FeedBack> list() {
+		return this.FBservice.list();
 	}
 
 	@RequestMapping("/read/{id}")
-	public Client read(@PathVariable final Integer id) {
-		if (this.service.read(id).isPresent()) {
-			return this.service.read(id).get();
+	public FeedBack read(@PathVariable final Integer id) {
+		if (this.FBservice.read(id).isPresent()) {
+			return this.FBservice.read(id).get();
 		}
 		return null;
 	}
 
 	@RequestMapping("/update/{id}")
-	public Client update(@PathVariable final Client client) {
-		return this.service.update(client);
+	public FeedBack update(@PathVariable final FeedBack feedBack) {
+		return this.FBservice.update(feedBack);
 	}
+
 }
