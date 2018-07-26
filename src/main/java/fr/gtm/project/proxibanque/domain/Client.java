@@ -21,10 +21,15 @@ public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column
 	private String firstName;
+	@Column
 	private String lastName;
+	@Column
 	private String tel;
+	@Column
 	private String email;
+	@Column
 	@Length(max = 8, message = "L'identifiant doit comporter 8 caractères")
 	private String number;
 
