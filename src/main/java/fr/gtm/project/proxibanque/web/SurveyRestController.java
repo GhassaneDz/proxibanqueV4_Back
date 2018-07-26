@@ -4,7 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,13 +23,13 @@ public class SurveyRestController {
 	@Autowired
 	private SurveyService service ; 
 	
-	@RequestMapping("/create/{id}")
+	@PostMapping("/")
 	public Survey create(@PathVariable final Survey survey) {
 		return this.service.create(survey);
 	}
 	
-	@RequestMapping("/delete/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable final Integer id) {
 		this.service.delete(id);
 	}
@@ -42,8 +46,8 @@ public class SurveyRestController {
 		} return null;
 	}
 	
-	@RequestMapping("/update/{id}")
-	public Survey update(@PathVariable final Survey survey) {
+	@PutMapping("/update/{id}")
+	public Survey update(@RequestBody final Survey survey) {
 		return this.service.update(survey);
 	}
 }
