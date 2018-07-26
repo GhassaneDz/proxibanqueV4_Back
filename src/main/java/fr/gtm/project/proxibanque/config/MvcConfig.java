@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.JstlView;
 @SuppressWarnings("deprecation")
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = { "fr.gtm.project.proxibanque.controller", "fr.gtm.project.proxibanque.business" })
+@ComponentScan(basePackages = { "fr.gtm.project.proxibanque.web", "fr.gtm.project.proxibanque.business" })
 @EnableJpaRepositories(basePackages = { "fr.gtm.project.proxibanque.dao" })
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
