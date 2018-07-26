@@ -19,20 +19,12 @@ public class RestControllerClass {
 	@Autowired
 	private ClientService service;
 
-
-	@RequestMapping("/{id}")
-	public Client client(@PathVariable final Integer id) {
-		if(this.service.read(id).isPresent()) {
-			return this.service.read(id).get();
-		} return null;
-	}
-
-	@RequestMapping("/{id}")
+	@RequestMapping("/create/{id}")
 	public Client create(@PathVariable final Client client) {
 		return this.service.create(client);
 	}
 
-	@RequestMapping("/{id}")
+	@RequestMapping("/delete/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable final Integer id) {
 		this.service.delete(id);
@@ -43,7 +35,14 @@ public class RestControllerClass {
 		return this.service.list();
 	}
 
-	@RequestMapping("/{id}")
+	@RequestMapping("/read/{id}")
+	public Client read(@PathVariable final Integer id) {
+		if(this.service.read(id).isPresent()) {
+			return this.service.read(id).get();
+		} return null;
+	}
+
+	@RequestMapping("/update/{id}")
 	public Client update(@PathVariable final Client client) {
 		return this.service.update(client);
 	}
