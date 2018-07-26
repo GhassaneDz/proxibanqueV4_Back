@@ -9,12 +9,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "feedBack")
 public class FeedBack {
 
 	@OneToOne
 	@JoinColumn(name = "idClient", referencedColumnName = "id")
+	@JsonIgnore
 	private Client client;
 
 	private boolean feedBack;
