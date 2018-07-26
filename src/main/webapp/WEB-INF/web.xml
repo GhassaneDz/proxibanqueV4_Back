@@ -21,7 +21,8 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>dispatcher</servlet-name>
+		<servlet-name>Spring Servlet</servlet-name>
+		<url-pattern>/api/*</url-pattern>
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 
