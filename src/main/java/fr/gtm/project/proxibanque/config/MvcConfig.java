@@ -10,6 +10,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 @SuppressWarnings("deprecation")
 @EnableWebMvc
@@ -35,5 +37,14 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 	public PlatformTransactionManager transactionManager() {
 		final PlatformTransactionManager tm = new JpaTransactionManager(this.entityManagerFactory().getObject());
 		return tm;
+	}
+
+	@Bean
+	public InternalResourceViewResolver viewResolver() {
+		final InternalResourceViewResolver vr = new InternalResourceViewResolver();
+		vr.setPrefix("/WEB-INF/views/");
+		vr.setSuffix(".jsp");
+		vr.setViewClass(JstlView.class);
+		return vr;
 	}
 }
