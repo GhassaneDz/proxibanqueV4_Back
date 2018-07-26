@@ -22,6 +22,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Spring Servlet</servlet-name>
+		<url-pattern>/api/*</url-pattern>
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 
