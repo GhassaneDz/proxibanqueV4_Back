@@ -30,7 +30,7 @@ public class RestControllerClass {
 		this.service.delete(id);
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("/clients")
 	public List<Client> list(){
 		return this.service.list();
 	}
