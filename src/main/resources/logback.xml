@@ -24,11 +24,26 @@
 		</layout>
 	</appender>
 
+     <logger name="fr.gtm.project.proxibanque" level="debug"
+		additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
 
 	<logger name="org.springframework.web" level="debug"
 		additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
+	
+	<logger name="org.hibernate" level="debug"
+		additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+   
+	
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
 
 
 </configuration>
