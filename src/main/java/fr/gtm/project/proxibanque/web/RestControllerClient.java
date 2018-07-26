@@ -14,7 +14,7 @@ import fr.gtm.project.proxibanque.domain.Client;
 
 @RestController
 @RequestMapping("/client")
-public class RestControllerClass {
+public class RestControllerClient {
 
 	@Autowired
 	private ClientService service;
