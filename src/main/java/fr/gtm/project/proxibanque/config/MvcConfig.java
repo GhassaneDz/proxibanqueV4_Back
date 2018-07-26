@@ -1,21 +1,13 @@
 package fr.gtm.project.proxibanque.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@SuppressWarnings("deprecation")
-@EnableWebMvc
-@Configuration
-@ComponentScan(basePackages = { "fr.gtm.project.proxibanque.controller", "fr.gtm.project.proxibanque.business" })
-@EnableJpaRepositories(basePackages = { "fr.gtm.project.proxibanque.dao" })
+
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	@Override
