@@ -1,5 +1,6 @@
 package fr.gtm.project.proxibanque.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -17,8 +18,11 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
-public class Survey {
+public class Survey implements Serializable {
 	
+	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
