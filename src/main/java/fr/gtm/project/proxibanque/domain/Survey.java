@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author Nadir && Faouzi && Fabien
  * @version 4.0
@@ -39,6 +41,7 @@ public class Survey implements Serializable {
 	private LocalDate closeDate ;
 	
 	@OneToMany(mappedBy="survey", fetch=FetchType.EAGER)
+	@JsonIgnore
 	private List <FeedBack> feedBacks ;
 	
 	

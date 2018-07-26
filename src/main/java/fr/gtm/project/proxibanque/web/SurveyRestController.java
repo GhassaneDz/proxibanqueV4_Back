@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.gtm.project.proxibanque.business.SurveyService;
-import fr.gtm.project.proxibanque.domain.Client;
 import fr.gtm.project.proxibanque.domain.Survey;
 
 @RestController
