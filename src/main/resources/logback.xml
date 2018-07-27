@@ -8,7 +8,6 @@
 			</Pattern>
 		</layout>
 	</appender>
-<<<<<<< Updated upstream
 
 	<appender name="APPLOG"
 		class="ch.qos.logback.core.FileAppender">
@@ -26,14 +25,6 @@
 
 	<logger name="org.springframework.web" level="debug"
 		additivity="false">
-=======
-	
-	<logger level="debug" name="fr.gtm.project.proxibanque" additivity="false">
-		<appender-ref ref="STDOUT" />
-	</logger>
-	
-	<logger level="debug" name="org.springframework.web" additivity="false">
->>>>>>> Stashed changes
 		<appender-ref ref="STDOUT" />
 	</logger>
 	
