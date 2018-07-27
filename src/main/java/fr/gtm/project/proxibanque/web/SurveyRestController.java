@@ -23,8 +23,8 @@ public class SurveyRestController {
 	@Autowired
 	private SurveyService service;
 
-	@PostMapping("/")
-	public Survey create(@PathVariable final Survey survey) {
+	@PostMapping({ "", "/" })
+	public Survey create(@RequestBody final Survey survey) {
 		return this.service.create(survey);
 	}
 
@@ -47,7 +47,7 @@ public class SurveyRestController {
 		return null;
 	}
 
-	@PutMapping("/update/{id}")
+	@PutMapping({ "", "/" })
 	public Survey update(@RequestBody final Survey survey) {
 		return this.service.update(survey);
 	}

@@ -12,7 +12,7 @@
 <body>
 	
 	<h1 align="center">NADIR...FABIEN...ET FAOUZI : BESTA TEAM powa!</h1>
-<div =class="container">
+<div class="container">
 	<h2>Editer le sondage</h2>
 	<div class="container-fluid">
 		<form:form modelAttribute="modelSurvey" method="post">
@@ -21,7 +21,7 @@
 			        <div class="form-group">
 			            <div class="input-group date" id="startDate">
 			            	<label for="startDate">StartDate : </label>
-			                <input name="startDate" type="text" class="form-control" id="startDate" value="${survey.startDate}" required="required" disabled />
+			                <input name="startDate" type="date" class="form-control" id="startDate" value="${survey.startDate}" required="required" disabled />
 			            </div>
 			        </div>
 			    </div>
@@ -29,7 +29,7 @@
 			        <div class="form-group">
 			            <div class="input-group date" id="EndDate">
 			            	<label for="id">EndDate : </label>
-			                <input name="endDate" type="text" class="form-control" id="endDate" value="${survey.endDate}" required="required" disabled/>
+			                <input name="endDate" type="date" class="form-control" id="endDate" value="${survey.endDate}" required="required" disabled/>
 			            </div>
 			        </div>
 			    </div>
@@ -38,6 +38,8 @@
 			            <div class="input-group date" id="CloseDate">
 			            	<label for="closeDate">CloseDate : </label>
 			                <input name="closeDate" type="date" class="form-control" id="closeDate" required="required"/>
+			                <input name="startDate"  class="form-control" id="startDate" value="${survey.startDate}" type="hidden"/>
+			                <input name="endDate"  class="form-control" id="endDate" value="${survey.endDate}" type="hidden"/>
 			            </div>
 			        </div>
 			    </div>
@@ -45,5 +47,6 @@
 			</div>
 		</form:form>
 	</div>
+</div>
 </body>
 </html>

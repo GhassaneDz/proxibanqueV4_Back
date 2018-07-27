@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.gtm.project.proxibanque.business.FeedbackService;
 import fr.gtm.project.proxibanque.domain.FeedBack;
+import fr.gtm.project.proxibanque.domain.Survey;
 
 @RestController
 @RequestMapping("/feedback")
@@ -26,7 +27,7 @@ public class FeedBackRestController {
 	@Autowired
 	private FeedbackService FBservice;
 
-	@PostMapping("/{id}")
+	@PostMapping({ "", "/" })
 	public FeedBack create(@PathVariable final FeedBack feedBack) {
 		return this.FBservice.create(feedBack);
 	}
@@ -50,13 +51,9 @@ public class FeedBackRestController {
 		return null;
 	}
 
-	@PutMapping("/update/{id}")
-	public FeedBack update(@RequestBody final FeedBack feedBack, final HttpServletResponse response)
-			throws IOException {
-		if (feedBack.getId() == null) {
-			response.sendError(HttpStatus.BAD_REQUEST.value(), "The feedBack id is missing to update.");
-		}
-		return this.FBservice.update(feedBack);
+	@PutMapping({ "", "/" })
+	public FeedBack update(@RequestBody final FeedBack feedBack) {
+	   return this.FBservice.update(feedBack);
 	}
 
 }
