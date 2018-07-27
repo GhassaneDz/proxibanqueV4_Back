@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
-
-	<property name="myPattern"
-		value="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{24} - %msg%n" />
-
-	<statusListener
-		class="ch.qos.logback.core.status.NopStatusListener" />
-
-	<appender name="STDOUT"
-		class="ch.qos.logback.core.ConsoleAppender">
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">
 			<Pattern>
-				${myPattern}
+				%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{24} - %msg%n
 			</Pattern>
 		</layout>
 	</appender>
+<<<<<<< Updated upstream
 
 	<appender name="APPLOG"
 		class="ch.qos.logback.core.FileAppender">
@@ -32,6 +26,14 @@
 
 	<logger name="org.springframework.web" level="debug"
 		additivity="false">
+=======
+	
+	<logger level="debug" name="fr.gtm.project.proxibanque" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger level="debug" name="org.springframework.web" additivity="false">
+>>>>>>> Stashed changes
 		<appender-ref ref="STDOUT" />
 	</logger>
 	
@@ -45,5 +47,7 @@
 		<appender-ref ref="STDOUT" />
 	</root>
 
-
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
 </configuration>

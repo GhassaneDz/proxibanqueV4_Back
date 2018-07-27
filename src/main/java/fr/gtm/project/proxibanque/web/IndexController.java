@@ -39,9 +39,9 @@ public class IndexController {
 	public ModelAndView detailsSurvey(@RequestParam("id") final Integer id) {
 		final ModelAndView mav = new ModelAndView("DetailsSurvey");
 		mav.addObject("feedbacks", this.surveyService.read(id));
-		mav.addObject("feedNegCount", this.feedBackService.feedNegCount());
-		mav.addObject("feedPosCount", this.feedBackService.feedPosCount());
-		mav.addObject("findFeedBackNotNull", this.feedBackService.findFeedBackNotNull());
+		mav.addObject("feedbacks", this.feedBackService.feedNegCount());
+		mav.addObject("feedbacks", this.feedBackService.feedPosCount());
+		mav.addObject("feedbacks", this.feedBackService.findFeedBackNotNull());
 		return mav;
 	}
 

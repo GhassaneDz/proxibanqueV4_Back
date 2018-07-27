@@ -26,6 +26,7 @@ public class Client implements Serializable {
 	@Column
 	private String firstName;
 	@Id
+	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column
@@ -38,7 +39,7 @@ public class Client implements Serializable {
 
 	/**
 	 * getter de l'email du client
-	 * 
+	 *
 	 * @return email l'email du client
 	 */
 	public String getEmail() {
@@ -47,7 +48,7 @@ public class Client implements Serializable {
 
 	/**
 	 * Getter du firstName du client
-	 * 
+	 *
 	 * @return le firstName du client
 	 */
 	public String getFirstName() {
@@ -56,7 +57,7 @@ public class Client implements Serializable {
 
 	/**
 	 * Getter de l'id du Client
-	 * 
+	 *
 	 * @return L'id du client
 	 */
 	public Integer getId() {
@@ -65,7 +66,7 @@ public class Client implements Serializable {
 
 	/**
 	 * Getter du lastName du client
-	 * 
+	 *
 	 * @return lastName
 	 */
 	public String getLastName() {
@@ -74,7 +75,7 @@ public class Client implements Serializable {
 
 	/**
 	 * getter de l'identifiant du client à 8 chiffre
-	 * 
+	 *
 	 * @return number, l'identifiant du client
 	 */
 	public String getNumber() {
@@ -83,7 +84,7 @@ public class Client implements Serializable {
 
 	/**
 	 * Getter du téléphone du client
-	 * 
+	 *
 	 * @return tel, le téléphone du client
 	 */
 	public String getTel() {
@@ -92,7 +93,7 @@ public class Client implements Serializable {
 
 	/**
 	 * setter de l'email du client
-	 * 
+	 *
 	 * @param email
 	 *            l'mail du client
 	 */
@@ -102,7 +103,7 @@ public class Client implements Serializable {
 
 	/**
 	 * setter du firstName du client
-	 * 
+	 *
 	 * @param firstName
 	 *            le firstName du client
 	 */
@@ -112,7 +113,7 @@ public class Client implements Serializable {
 
 	/**
 	 * Setter de l'id du Client
-	 * 
+	 *
 	 * @param id
 	 *            du client
 	 */
@@ -122,7 +123,7 @@ public class Client implements Serializable {
 
 	/**
 	 * Setter du LastName duc lient
-	 * 
+	 *
 	 * @param lastName
 	 *            du client
 	 */
@@ -132,7 +133,7 @@ public class Client implements Serializable {
 
 	/**
 	 * setter de l'identifiant du client
-	 * 
+	 *
 	 * @param number
 	 *            l'identifiant du client
 	 */
@@ -142,7 +143,7 @@ public class Client implements Serializable {
 
 	/**
 	 * setter du teléphone du client
-	 * 
+	 *
 	 * @param tel
 	 *            le numéro de téléphone du client
 	 */
