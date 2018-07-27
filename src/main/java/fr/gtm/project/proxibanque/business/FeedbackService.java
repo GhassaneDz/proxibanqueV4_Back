@@ -23,6 +23,26 @@ public class FeedbackService {
 		this.repo.deleteById(id);
 	}
 
+	public Integer feedNegCount() {
+		final Integer result = this.repo.findFeedBackByNeg().size();
+		return result;
+	}
+
+	public Integer feedPosCount() {
+		final Integer result = this.repo.findFeedBackByPos().size();
+		return result;
+	}
+
+	public List<FeedBack> findFeedBackNotNull() {
+		final List<FeedBack> result = this.repo.findComTrue();
+		return result;
+	}
+
+	public List<FeedBack> findFeedBackNull() {
+		final List<FeedBack> result = this.repo.findComFalse();
+		return result;
+	}
+
 	public List<FeedBack> list() {
 		return this.repo.findAll();
 	}
@@ -39,5 +59,4 @@ public class FeedbackService {
 	public FeedBack update(final FeedBack entity) {
 		return this.repo.save(entity);
 	}
-
 }

@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import fr.gtm.project.proxibanque.business.FeedbackService;
 import fr.gtm.project.proxibanque.business.SurveyService;
 import fr.gtm.project.proxibanque.domain.Survey;
 
 @Controller
 public class IndexController {
+
+	@Autowired
+	private FeedbackService feedBackService;
 
 	@Autowired
 	private SurveyService surveyService;
@@ -35,6 +39,9 @@ public class IndexController {
 	public ModelAndView detailsSurvey(@RequestParam("id") final Integer id) {
 		final ModelAndView mav = new ModelAndView("DetailsSurvey");
 		mav.addObject("feedbacks", this.surveyService.read(id));
+		mav.addObject("feedNegCount", this.feedBackService.feedNegCount());
+		mav.addObject("feedPosCount", this.feedBackService.feedPosCount());
+		mav.addObject("findFeedBackNotNull", this.feedBackService.findFeedBackNotNull());
 		return mav;
 	}
 

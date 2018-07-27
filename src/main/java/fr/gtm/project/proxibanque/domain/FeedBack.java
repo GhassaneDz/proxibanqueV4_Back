@@ -32,31 +32,6 @@ public class FeedBack {
 	@JoinColumn(name = "idSurvey", nullable = false)
 	private Survey survey;
 
-	/**
-	 *
-	 */
-	public FeedBack() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @param id
-	 * @param feedBackText
-	 * @param feedback
-	 * @param survey
-	 * @param client
-	 */
-	public FeedBack(final Integer id, final String feedBackText, final boolean feedback, final Survey survey,
-			final Client client) {
-		super();
-		this.id = id;
-		this.feedBackText = feedBackText;
-		this.feedBack = feedback;
-		this.survey = survey;
-		this.client = client;
-	}
-
 	public Client getClient() {
 		return this.client;
 	}
@@ -97,9 +72,4 @@ public class FeedBack {
 		this.survey = survey;
 	}
 
-	@Override
-	public String toString() {
-		return "FeedBack [id=" + this.id + ", feedBackText=" + this.feedBackText + ", feedBack=" + this.feedBack
-				+ ", survey=" + this.survey + ", client=" + this.client + "]";
-	}
 }

@@ -55,12 +55,12 @@
 						<tbody>
 							<c:forEach var="survey" items="${surveys}">
 							<c:url value="/EditSurvey.html?id=" var="EditSurvey" />
-							<c:url value="/DetailSurvey.html?id=" var="DetailSurvey" />
+							<c:url value="/DetailsSurvey.html?id=" var="DetailsSurvey" />
 								<tr>
 									<td><c:out value="${survey.startDate}" /></td>
 									<td><c:out value="${survey.endDate}" /></td>
 									<td><c:out value="${survey.closeDate}" /></td>
-									<td><a href="${DetailSurvey}${survey.id}" class="btn btn-info">see details</a></td>
+									<td><a href="${DetailsSurvey}${survey.id}" class="btn btn-info">see details</a></td>
 									<td><a href="${EditSurvey}${survey.id}" class="btn btn-danger">Close the publication</a></td>
 								</tr>
 							</c:forEach>
