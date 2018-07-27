@@ -12,54 +12,47 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-
 /**
  * @author Nadir && Faouzi && Fabien
- * @version 4.0
- * Classe representant un sondage proposé au client de la banque
+ * @version 4.0 Classe representant un sondage proposé au client de la banque
  *
  */
 @Entity
 public class Survey implements Serializable {
 
-
 	private static final long serialVersionUID = 1L;
+
+	@Column(nullable = false)
+	@JsonFormat(pattern = "dd-mm-yyyy")
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
+	private LocalDate closeDate;
+
+	@Column(nullable = false)
+	@JsonFormat(pattern = "dd-mm-yyyy")
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
+	private LocalDate endDate;
+
+	@OneToMany(mappedBy = "survey", fetch = FetchType.EAGER)
+	@JsonIgnore
+	private List<FeedBack> feedBacks;
 
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id ;
+	private Integer id;
 
 	@Column(nullable = false)
-	@JsonFormat(pattern="dd-mm-yyyy")
+	@JsonFormat(pattern = "dd-mm-yyyy")
 	@JsonDeserialize(using = LocalDateDeserializer.class)
 	@JsonSerialize(using = LocalDateSerializer.class)
-	private LocalDate startDate ;
-
-	@Column(nullable = false)
-	@JsonFormat(pattern="dd-mm-yyyy")
-	@JsonDeserialize(using = LocalDateDeserializer.class)
-	@JsonSerialize(using = LocalDateSerializer.class)
-	private LocalDate endDate ;
-
-	@Column(nullable = false)
-	@JsonFormat(pattern="dd-mm-yyyy")
-	@JsonDeserialize(using = LocalDateDeserializer.class)
-	@JsonSerialize(using = LocalDateSerializer.class)
-	private LocalDate closeDate ;
-
-	@OneToMany(mappedBy="survey", fetch=FetchType.EAGER)
-	@JsonIgnore
-	private List <FeedBack> feedBacks ;
-
-
+	private LocalDate startDate;
 
 	/**
 	 * @return la date de fermeture du sondage
@@ -74,7 +67,6 @@ public class Survey implements Serializable {
 	public LocalDate getEndDate() {
 		return this.endDate;
 	}
-
 
 	/**
 	 * @return la liste des commentaires pour un sondage
@@ -98,43 +90,43 @@ public class Survey implements Serializable {
 	}
 
 	/**
-	 * @param closeDate la date de fermeture du sondage
+	 * @param closeDate
+	 *            la date de fermeture du sondage
 	 */
 	public void setCloseDate(final LocalDate closeDate) {
 		this.closeDate = closeDate;
 	}
 
 	/**
-	 * @param endDate la date de fin du sondage
+	 * @param endDate
+	 *            la date de fin du sondage
 	 */
 	public void setEndDate(final LocalDate endDate) {
 		this.endDate = endDate;
 	}
 
 	/**
-	 * @param feedBacks la liste des commentaires du sondage
+	 * @param feedBacks
+	 *            la liste des commentaires du sondage
 	 */
 	public void setFeedBacks(final List<FeedBack> feedBacks) {
 		this.feedBacks = feedBacks;
 	}
 
 	/**
-	 * @param id l'identifient de la classe Survey
+	 * @param id
+	 *            l'identifient de la classe Survey
 	 */
 	public void setId(final Integer id) {
 		this.id = id;
 	}
 
 	/**
-	 * @param startDate la date de début du sondage
+	 * @param startDate
+	 *            la date de début du sondage
 	 */
 	public void setStartDate(final LocalDate startDate) {
 		this.startDate = startDate;
 	}
-
-
-
-
-
 
 }

@@ -21,31 +21,32 @@ import fr.gtm.project.proxibanque.domain.Survey;
 public class SurveyRestController {
 
 	@Autowired
-	private SurveyService service ; 
-	
+	private SurveyService service;
+
 	@PostMapping("/")
 	public Survey create(@PathVariable final Survey survey) {
 		return this.service.create(survey);
 	}
-	
+
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable final Integer id) {
 		this.service.delete(id);
 	}
-	
+
 	@RequestMapping("/surveys")
-	public List<Survey> list(){
+	public List<Survey> list() {
 		return this.service.list();
 	}
-	
+
 	@RequestMapping("/read/{id}")
 	public Survey read(@PathVariable final Integer id) {
-		if(this.service.read(id).isPresent()) {
-			return this.service.read(id).get();
-		} return null;
+		if (this.service.read(id) != null) {
+			return this.service.read(id);
+		}
+		return null;
 	}
-	
+
 	@PutMapping("/update/{id}")
 	public Survey update(@RequestBody final Survey survey) {
 		return this.service.update(survey);
