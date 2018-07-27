@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" session="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"/>
 <title>Gestion des Sondages</title>
 </head>
 <body>
-	
-	<h1 align="center">NADIR...FABIEN...ET FAOUZI : BESTA TEAM powa!</h1>
+<h1 align="center">Gestion des Sondages</h1>
 <div class="container">
 	<h2>Editer le sondage</h2>
 	<div class="container-fluid">
@@ -47,6 +46,9 @@
 			</div>
 		</form:form>
 	</div>
+	<hr>
+<c:url value="/index.html" var="index" />
+	<a href="${index}" class="btn btn-info">Retour</a>
 </div>
 </body>
 </html>

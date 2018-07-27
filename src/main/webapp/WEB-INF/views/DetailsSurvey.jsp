@@ -6,28 +6,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"/>
 <title>Gestion des Sondages</title>
 </head>
 <body>
-<h2>Détails de la Survey sélectionnée:</h2>
+<h1 align="center">Gestion des Sondages</h1>
+<div class="container">
+	<h2>Détails de la Survey sélectionnée:</h2>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col">
 				<div class="panel-body">
-					<table class="table">
+					<table id="customers">
 						<thead>
 							<tr>
 								<td>Commentaire:</td>
 								<td>Avis positifs</td>
-								<td>Avis negatifs</td>
+								<td>Avis négatifs</td>
 							</tr>
 						</thead>
 						<tbody>
-								<td>
+							<td>
 							<c:forEach var="feedback" items="${feedBackText}">
-									<ul>
-										<li><c:out value="${feedback.feedBackText}" /></li>
-									</ul>
+								<ul>
+									<li><c:out value="${feedback.feedBackText}" /></li>
+								</ul>
 							</c:forEach>
 								</td>
 								<td>${feedPosCount}</td>
@@ -38,7 +41,9 @@
 			</div>
 		</div>
 	</div>
+	<hr>
 	<c:url value="/index.html" var="index" />
-	<a href="${index}" class="btn btn-info">Revenir à l'accueil</a>
+	<a href="${index}" class="btn btn-info">Retour</a>
+</div>
 </body>
 </html>
