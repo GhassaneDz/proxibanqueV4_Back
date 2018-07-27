@@ -40,7 +40,7 @@
 	<h2>Sondage en cours</h2>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-4" align="center">
+			<div class="col-md-6" align="center">
 				<div class="panel-body">
 					<table class="table" align="center">
 						<thead>

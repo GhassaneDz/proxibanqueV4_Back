@@ -38,6 +38,8 @@
 			            <div class="input-group date" id="CloseDate">
 			            	<label for="closeDate">CloseDate : </label>
 			                <input name="closeDate" type="date" class="form-control" id="closeDate" required="required"/>
+			                <input name="startDate"  class="form-control" id="startDate" value="${survey.startDate}" type="hidden"/>
+			                <input name="endDate"  class="form-control" id="endDate" value="${survey.endDate}" type="hidden"/>
 			            </div>
 			        </div>
 			    </div>
@@ -45,5 +47,6 @@
 			</div>
 		</form:form>
 	</div>
+</div>
 </body>
 </html>
