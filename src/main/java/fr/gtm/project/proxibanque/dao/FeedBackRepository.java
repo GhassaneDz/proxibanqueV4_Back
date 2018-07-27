@@ -11,16 +11,16 @@ import fr.gtm.project.proxibanque.domain.FeedBack;
 @Repository
 public interface FeedBackRepository extends JpaRepository<FeedBack, Integer> {
 
-	@Query(value = " SELECT * FROM `feedback` WHERE `feedBackText` IS NULL", nativeQuery = true)
-	List<FeedBack> findComFalse();
+	@Query(value = " SELECT * FROM `feedback` WHERE `idSurvey`=?1 AND `feedBackText` IS NULL", nativeQuery = true)
+	List<FeedBack> findComFalse(Integer id);
 
-	@Query(value = " SELECT * FROM `feedback` WHERE `feedBackText` IS NOT NULL", nativeQuery = true)
-	List<FeedBack> findComTrue();
+	@Query(value = " SELECT * FROM `feedback` WHERE `idSurvey`=?1 AND `feedBackText` IS NOT NULL", nativeQuery = true)
+	List<FeedBack> findComTrue(Integer id);
 
-	@Query(value = " SELECT * FROM `feedback` WHERE `feedback` = 0 ", nativeQuery = true)
-	List<FeedBack> findFeedBackByNeg();
+	@Query(value = " SELECT * FROM `feedback` WHERE `idSurvey`=?1 AND `feedback` = 0 ", nativeQuery = true)
+	List<FeedBack> findFeedBackByNeg(Integer id);
 
-	@Query(value = " SELECT * FROM `feedback` WHERE `feedback` = 1 ", nativeQuery = true)
-	List<FeedBack> findFeedBackByPos();
+	@Query(value = " SELECT * FROM `feedback` WHERE `idSurvey`=?1 AND `feedback` = 1 ", nativeQuery = true)
+	List<FeedBack> findFeedBackByPos(Integer id);
 
 }

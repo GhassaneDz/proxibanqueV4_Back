@@ -23,23 +23,23 @@ public class FeedbackService {
 		this.repo.deleteById(id);
 	}
 
-	public Integer feedNegCount() {
-		final Integer result = this.repo.findFeedBackByNeg().size();
+	public Integer feedNegCount(final Integer id) {
+		final Integer result = this.repo.findFeedBackByNeg(id).size();
 		return result;
 	}
 
-	public Integer feedPosCount() {
-		final Integer result = this.repo.findFeedBackByPos().size();
+	public Integer feedPosCount(final Integer id) {
+		final Integer result = this.repo.findFeedBackByPos(id).size();
 		return result;
 	}
 
-	public List<FeedBack> findFeedBackNotNull() {
-		final List<FeedBack> result = this.repo.findComTrue();
+	public List<FeedBack> findFeedBackNotNull(final Integer id) {
+		final List<FeedBack> result = this.repo.findComTrue(id);
 		return result;
 	}
 
-	public List<FeedBack> findFeedBackNull() {
-		final List<FeedBack> result = this.repo.findComFalse();
+	public List<FeedBack> findFeedBackNull(final Integer id) {
+		final List<FeedBack> result = this.repo.findComFalse(id);
 		return result;
 	}
 

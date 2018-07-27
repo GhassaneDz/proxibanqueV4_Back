@@ -18,23 +18,23 @@
 						<thead>
 							<tr>
 								<td>Commentaire:</td>
+								<td>Avis positifs</td>
+								<td>Avis negatifs</td>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="feedback" items="${feedbacks}">
-								<tr>
-									<td><c:out value="${feedback.findFeedBackNotNull}" /></td>
-								</tr>
+								<td>
+							<c:forEach var="feedback" items="${feedBackText}">
+									<ul>
+										<li><c:out value="${feedback.feedBackText}" /></li>
+									</ul>
 							</c:forEach>
+								</td>
+								<td>${feedPosCount}</td>
+								<td>${feedNegCount}</td>
 						</tbody>
 					</table>
 				</div>
-			</div>
-			<div class="col">
-				<span>Nombre de réponse négatives: ${feedback.feedNegCount}</span>
-			</div>
-			<div class="col">
-				<span>Nombre de réponse positives: ${feedback.feedPosCount}</span>
 			</div>
 		</div>
 	</div>
