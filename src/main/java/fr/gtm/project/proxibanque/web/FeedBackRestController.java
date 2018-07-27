@@ -44,8 +44,8 @@ public class FeedBackRestController {
 
 	@RequestMapping("/{id}")
 	public FeedBack read(@PathVariable final Integer id) {
-		if (this.FBservice.read(id).isPresent()) {
-			return this.FBservice.read(id).get();
+		if (this.FBservice.read(id) != null) {
+			return this.FBservice.read(id);
 		}
 		return null;
 	}

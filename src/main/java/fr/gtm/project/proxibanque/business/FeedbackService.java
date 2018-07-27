@@ -27,8 +27,13 @@ public class FeedbackService {
 		return this.repo.findAll();
 	}
 
-	public Optional<FeedBack> read(final Integer id) {
-		return this.repo.findById(id);
+	public FeedBack read(final Integer id) {
+		FeedBack result = null;
+		final Optional<FeedBack> entity = this.repo.findById(id);
+		if (entity.isPresent()) {
+			result = entity.get();
+		}
+		return result;
 	}
 
 	public FeedBack update(final FeedBack entity) {
