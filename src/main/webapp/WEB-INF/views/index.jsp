@@ -32,7 +32,9 @@
 			            </div>
 			        </div>
 			    </div>
-				<button type="submit" class="btn btn-success">Valider</button>
+			    <span>
+				<button type="submit" class="btn btn-success">Valider</button>			    
+			    </span>
 			</div>
 		</form:form>
 	</div>
@@ -43,8 +45,9 @@
 			<th>ID</th>
 			<th>Start Date</th>
 			<th>End Date</th>
-			<th>Closed Date</th>
-			<th>Close Survey</th>
+			<th>Close Date</th>
+			<th></th>
+			<th></th>
 		</tr>
 		
 	<c:url value="/DetailsSurvey.html" var="detail" />
@@ -52,6 +55,7 @@
 	
 		<c:forEach items="${surveyList}" var="survey">
 			<tr>
+				<td><c:out value="${survey.id}"></c:out></td>
 				<td><c:out value="${survey.startDate}"></c:out></td>
 				<td><c:out value="${survey.endDate}"></c:out></td>
 				<td><c:out value="${survey.closeDate}"></c:out></td>
@@ -60,6 +64,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-
+<br>
+<hr>
 </body>
 </html>
