@@ -1,10 +1,12 @@
 package fr.gtm.project.proxibanque.web;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,10 +20,10 @@ import fr.gtm.project.proxibanque.domain.Survey;
 public class IndexController {
 
 	@Autowired
-	private FeedbackService feedBackService;
+	private SurveyService surveyService;
 
 	@Autowired
-	private SurveyService surveyService;
+	private FeedbackService feedBackService;
 
 	@PostMapping({ "/", "/index" })
 	public ModelAndView createSurvey(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate startDate,
@@ -44,10 +46,25 @@ public class IndexController {
 		return mav;
 	}
 
+	@GetMapping("/detail")
+	public ModelAndView detailSurvey(@RequestParam("id") final Integer id, final Model map) {
+		final ModelAndView mav = new ModelAndView("detail");
+		map.addAttribute("survey", this.surveyService.read(id));
+		return mav;
+	}
+
 	@GetMapping({ "/EditSurvey" })
 	public ModelAndView editSurvey(@RequestParam("id") final Integer id) {
 		final ModelAndView mav = new ModelAndView("EditSurvey");
 		mav.addObject("survey", this.surveyService.read(id));
+		return mav;
+	}
+
+	@GetMapping("/edit")
+	public ModelAndView editSurvey(@RequestParam("id") final Integer id, final Model map) {
+		final ModelAndView mav = new ModelAndView("edit");
+		final Survey survey = this.surveyService.read(id);
+		mav.addObject("survey", survey);
 		return mav;
 	}
 
@@ -67,8 +84,10 @@ public class IndexController {
 	}
 
 	@GetMapping("/index")
-	public ModelAndView updateArticle() {
+	public ModelAndView index() {
 		final ModelAndView mav = new ModelAndView("index");
+		final List<Survey> survey = this.surveyService.list();
+		mav.addObject("surveyList", survey);
 		mav.addObject("surveys", this.surveyService.list());
 		return mav;
 	}

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -24,10 +25,11 @@ public class ClientRestController {
 	@PostMapping({ "", "/" })
 	public Client create(@PathVariable final Client client) {
 		return this.service.create(client);
+
 	}
 
-	@RequestMapping("/delete/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable final Integer id) {
 		this.service.delete(id);
 	}
