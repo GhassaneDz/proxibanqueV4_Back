@@ -37,8 +37,8 @@ public class ClientRestController {
 
 	@RequestMapping("/read/{id}")
 	public Client read(@PathVariable final Integer id) {
-		if (this.service.read(id).isPresent()) {
-			return this.service.read(id).get();
+		if (this.service.read(id) != null) {
+			return this.service.read(id);
 		}
 		return null;
 	}
