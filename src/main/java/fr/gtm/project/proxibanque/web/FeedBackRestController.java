@@ -1,6 +1,9 @@
 package fr.gtm.project.proxibanque.web;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,42 +16,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.gtm.project.proxibanque.business.SurveyService;
+import fr.gtm.project.proxibanque.business.FeedbackService;
+import fr.gtm.project.proxibanque.domain.FeedBack;
 import fr.gtm.project.proxibanque.domain.Survey;
 
 @RestController
-@RequestMapping("/survey")
-public class SurveyRestController {
+@RequestMapping("/feedback")
+public class FeedBackRestController {
 
 	@Autowired
-	private SurveyService service;
+	private FeedbackService FBservice;
 
 	@PostMapping({ "", "/" })
-	public Survey create(@RequestBody final Survey survey) {
-		return this.service.create(survey);
+	public FeedBack create(@PathVariable final FeedBack feedBack) {
+		return this.FBservice.create(feedBack);
 	}
 
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable final Integer id) {
-		this.service.delete(id);
+		this.FBservice.delete(id);
 	}
 
-	@RequestMapping("/surveys")
-	public List<Survey> list() {
-		return this.service.list();
+	@RequestMapping("/")
+	public List<FeedBack> list() {
+		return this.FBservice.list();
 	}
 
-	@RequestMapping("/read/{id}")
-	public Survey read(@PathVariable final Integer id) {
-		if (this.service.read(id) != null) {
-			return this.service.read(id);
+	@RequestMapping("/{id}")
+	public FeedBack read(@PathVariable final Integer id) {
+		if (this.FBservice.read(id) != null) {
+			return this.FBservice.read(id);
 		}
 		return null;
 	}
 
 	@PutMapping({ "", "/" })
-	public Survey update(@RequestBody final Survey survey) {
-		return this.service.update(survey);
+	public FeedBack update(@RequestBody final FeedBack feedBack) {
+	   return this.FBservice.update(feedBack);
 	}
+
 }

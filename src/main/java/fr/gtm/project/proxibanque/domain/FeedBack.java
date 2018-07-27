@@ -15,46 +15,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "feedBack")
 public class FeedBack {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-
-	private String feedBackText;
-	
-	private boolean feedBack;
-
-	@ManyToOne
-	@JoinColumn(name="idSurvey", nullable=false)
-	private Survey survey;
-
 	@OneToOne
 	@JoinColumn(name = "idClient", referencedColumnName = "id")
 	@JsonIgnore
 	private Client client;
 
-	/**
-	 *
-	 */
-	public FeedBack() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	private boolean feedBack;
 
-	/**
-	 * @param id
-	 * @param feedBackText
-	 * @param feedback
-	 * @param survey
-	 * @param client
-	 */
-	public FeedBack(final Integer id, final String feedBackText, final boolean feedback, final Survey survey, final Client client) {
-		super();
-		this.id = id;
-		this.feedBackText = feedBackText;
-		this.feedBack = feedback;
-		this.survey = survey;
-		this.client = client;
-	}
+	private String feedBackText;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@ManyToOne
+	@JoinColumn(name = "idSurvey", nullable = false)
+	private Survey survey;
 
 	public Client getClient() {
 		return this.client;
@@ -96,9 +72,4 @@ public class FeedBack {
 		this.survey = survey;
 	}
 
-	@Override
-	public String toString() {
-		return "FeedBack [id=" + this.id + ", feedBackText=" + this.feedBackText + ", feedBack=" + this.feedBack + ", survey=" + this.survey
-				+ ", client=" + this.client + "]";
-	}
 }

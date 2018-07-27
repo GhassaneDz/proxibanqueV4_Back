@@ -9,10 +9,9 @@ import org.springframework.stereotype.Service;
 import fr.gtm.project.proxibanque.dao.ClientRepository;
 import fr.gtm.project.proxibanque.domain.Client;
 
-
 @Service
 public class ClientService {
-	
+
 	@Autowired
 	private ClientRepository repo;
 
@@ -28,8 +27,13 @@ public class ClientService {
 		return this.repo.findAll();
 	}
 
-	public Optional<Client> read(final Integer id) {
-		return this.repo.findById(id);
+	public Client read(final Integer id) {
+		Client result = null;
+		final Optional<Client> entity = this.repo.findById(id);
+		if (entity.isPresent()) {
+			result = entity.get();
+		}
+		return result;
 	}
 
 	public Client update(final Client entity) {
