@@ -19,6 +19,10 @@ public class SurveyService {
 	private SurveyRepository repo;
 
 	/**
+
+	 * Méthode service de création d'un survey
+	 * @param entity Nouveau survey à crée en paramètre
+
 	 *
 	 * @param entity
 	 *            Nouveau survey à crée en paramètre
@@ -35,6 +39,9 @@ public class SurveyService {
 	}
 
 	/**
+
+	 * Méthode service de suppréssion d'un survey
+	 * @param id Identifiant du survey à supprimer
 	 *
 	 * @param id
 	 *            Identifiant du survey à supprimer
@@ -44,7 +51,7 @@ public class SurveyService {
 	}
 
 	/**
-	 *
+	 * Méthode service de consultation de survey en cours
 	 * @return Voir si il y a un sondage en cours
 	 */
 	public int getActualSurvey() {
@@ -64,7 +71,7 @@ public class SurveyService {
 	}
 
 	/**
-	 *
+	 * Méthode service de consultation de survey clôturable
 	 * @return Le survey qui peut être clôturé
 	 */
 	public int isSurveyClosable() {
@@ -72,7 +79,7 @@ public class SurveyService {
 		final LocalDate today = LocalDate.now();
 		final List<Survey> listSurvey = this.list();
 		for (final Survey survey : listSurvey) {
-			if ((survey.getCloseDate() == null) || survey.getEndDate().isAfter(today)) {
+			if (survey.getCloseDate() == null || survey.getEndDate().isAfter(today)) {
 				isSurveyCurrent = survey.getId();
 			}
 		}
@@ -81,7 +88,7 @@ public class SurveyService {
 	}
 
 	/**
-	 *
+	 * Méthode service de listing de tout les survey
 	 * @return La liste des survey
 	 */
 	public List<Survey> list() {
@@ -89,6 +96,9 @@ public class SurveyService {
 	}
 
 	/**
+
+	 * Méthode service d'affichage d'un survey spécifique par son id
+	 * @param id du survey spécifique
 	 *
 	 * @param id
 	 *            du survey spécifique
@@ -104,7 +114,9 @@ public class SurveyService {
 	}
 
 	/**
-	 *
+
+	 * Méthode service de mise à jours d'un survey
+	 * @param entity Le survey à mettre à jours
 	 * @param entity
 	 *            Le survey à mettre à jours
 	 * @return Le survey avec les changements
@@ -119,5 +131,4 @@ public class SurveyService {
 		}
 		return this.repo.save(entity);
 	}
-
 }

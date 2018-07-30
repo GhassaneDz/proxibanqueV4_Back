@@ -79,10 +79,10 @@ public class FeedBackRestController {
 
 	/**
 	 * WebService permettant la mise à jour d'un commentaire en persistence
-	 * 
+	 *
 	 * @param feedBack
 	 *            est le commentaire à mettre à jour
-	 * 
+	 *
 	 * @return Le feedback avec les informations misent à jour
 	 */
 	@PutMapping({ "", "/" })

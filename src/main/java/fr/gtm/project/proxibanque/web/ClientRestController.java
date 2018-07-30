@@ -29,6 +29,7 @@ public class ClientRestController {
 	 *            le client à créer en persistence
 	 *
 	 * @return client, Le client créé en persistence
+	 *
 	 */
 	@PostMapping({ "", "/" })
 	public Client create(@RequestBody final Client client) {
@@ -39,8 +40,11 @@ public class ClientRestController {
 	/**
 	 * WebService permettant l'affichage de la liste des client présent en
 	 * persistence
-	 * 
+	 *
 	 * @return La liste des clients présent en persistence
+	 *
+	 * @param id
+	 *            Client à supprimé
 	 */
 	@RequestMapping("/list")
 	public List<Client> list() {
@@ -68,9 +72,13 @@ public class ClientRestController {
 	/**
 	 * WebService permettant de mettre à jour un client. Cette méthode requiert un
 	 * client en paramètre
-	 * 
+	 *
+	 * ======= Méthode de mise à jours d'un client spécifique
+	 *
 	 * @param client
-	 *            Le client à mettre à jour
+	 *            Client à mettre à jours
+	 *
+	 * 
 	 * @return client Le client mis à jour avec les nouvelles informations
 	 */
 	@PutMapping({ "", "/" })

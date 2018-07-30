@@ -16,6 +16,8 @@ public class ClientService {
 	private ClientRepository repo;
 
 	/**
+	 * Méthode service de création d'un client
+	 * @param entity Le client à crée
 	 * Méthode de création d'un client
 	 *
 	 * @param entity
@@ -27,6 +29,8 @@ public class ClientService {
 	}
 
 	/**
+	 * Méthode service de suppréssion d'un client
+	 * @param id Le client spécifique à supprimer
 	 * Methode de suppresion d'un client
 	 *
 	 * @param id
@@ -38,6 +42,7 @@ public class ClientService {
 	}
 
 	/**
+	 * Méthode service de listing des clients
 	 * Méthode de recherche d'un numéro de client à partir de son Id
 	 *
 	 * @param id
@@ -58,6 +63,11 @@ public class ClientService {
 	}
 
 	/**
+
+	 * Méthode service de lecture d'un client spécifique
+	 * @param id Du client spécifique à afficher
+	 * @return Le client spécifique à l'id
+
 	 * Méthode d'affichage d'un client à partir de son Id
 	 *
 	 * @param id
@@ -74,6 +84,9 @@ public class ClientService {
 	}
 
 	/**
+	 * Méthode service de mise à jours d'un client
+	 * @param entity Le client à mettre à jours
+	 * @return Le client à jours
 	 * Mise à jour d'un client à partir de sont Id.
 	 *
 	 * @param entity

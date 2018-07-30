@@ -16,10 +16,10 @@ public class FeedbackService {
 	private FeedBackRepository repo;
 
 	/**
-	 * Méthode de création d'un feedBack
+	 * Méthode service de creation d'un feedback
 	 *
 	 * @param entity
-	 *            le Feedback à créer
+	 *            Objet Feedback à crée >
 	 * @return Le nouvel objet feedback
 	 */
 	public FeedBack create(final FeedBack entity) {
@@ -27,7 +27,8 @@ public class FeedbackService {
 	}
 
 	/**
-	 *
+	 * Méthode service de supprésion d'un feedback
+	 * 
 	 * @param id
 	 *            Id de l'objet Fedback à supprimer
 	 */
@@ -36,6 +37,7 @@ public class FeedbackService {
 	}
 
 	/**
+	 * Méthode service de décrementation d'un feedback négatif
 	 *
 	 * @param id
 	 *            Feedback auquel il faut affecter un décrement
@@ -46,6 +48,7 @@ public class FeedbackService {
 	}
 
 	/**
+	 * Méthode service d'incrémentation d'un feedback positif
 	 *
 	 * @param id
 	 *            Feedback auquel il faut affecter un incrément
@@ -56,6 +59,7 @@ public class FeedbackService {
 	}
 
 	/**
+	 * Méthode service qui retourne un feedback qui n'est pas null
 	 *
 	 * @param id
 	 *            Pour trouver un feedback qui n'est pas null
@@ -66,6 +70,7 @@ public class FeedbackService {
 	}
 
 	/**
+	 * Méthode service qui retourne un feedback qui est null
 	 *
 	 * @param id
 	 *            Pour trouver un feedback qui est null
@@ -76,6 +81,7 @@ public class FeedbackService {
 	}
 
 	/**
+	 * Méthode service de listing des feedback
 	 *
 	 * @return La liste des feedback
 	 */
@@ -84,6 +90,7 @@ public class FeedbackService {
 	}
 
 	/**
+	 * Méthode service de listing d'un feedback spécifique
 	 *
 	 * @param id
 	 *            Pour lire un feedback spécifique avec son Id
@@ -99,6 +106,7 @@ public class FeedbackService {
 	}
 
 	/**
+	 * Méthode service de mise à jour d'un feedback spécifique
 	 *
 	 * @param entity
 	 *            Le feedback à mettre à jours
