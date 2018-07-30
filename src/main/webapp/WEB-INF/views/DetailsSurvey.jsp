@@ -7,6 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"/>
+
+<style>
+ul > li {
+	list-style-type: none;
+}
+</style>
+
 <title>Gestion des Sondages</title>
 </head>
 <body>
@@ -20,19 +27,19 @@
 					<table id="customers">
 						<thead>
 							<tr>
-								<td>Commentaire:</td>
-								<td>Avis positifs</td>
-								<td>Avis négatifs</td>
+								<th>Commentaire:</th>
+								<th>Avis positifs</th>
+								<th>Avis négatifs</th>
 							</tr>
 						</thead>
 						<tbody>
-							<td>
 							<c:forEach var="feedback" items="${feedBackText}">
+							<td>
 								<ul>
 									<li><c:out value="${feedback.feedBackText}" /></li>
 								</ul>
-							</c:forEach>
 								</td>
+							</c:forEach>
 								<td>${feedPosCount}</td>
 								<td>${feedNegCount}</td>
 						</tbody>
