@@ -11,6 +11,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ *
+ * @author Faouzi - Nadir - Fabien: Class POJO pour la création et la gestion des feedback
+ *
+ */
 @Entity
 @Table(name = "feedBack")
 public class FeedBack {

@@ -90,40 +90,40 @@ public class Survey implements Serializable {
 	}
 
 	/**
-	 * @param closeDate
-	 *            la date de fermeture du sondage
+	 * @param closeDate la date de fermeture du sondage
+	 *
 	 */
 	public void setCloseDate(final LocalDate closeDate) {
 		this.closeDate = closeDate;
 	}
 
 	/**
-	 * @param endDate
-	 *            la date de fin du sondage
+	 * @param endDate la date de fin du sondage
+	 *
 	 */
 	public void setEndDate(final LocalDate endDate) {
 		this.endDate = endDate;
 	}
 
 	/**
-	 * @param feedBacks
-	 *            la liste des commentaires du sondage
+	 * @param feedBacks la liste des commentaires du sondage
+	 *
 	 */
 	public void setFeedBacks(final List<FeedBack> feedBacks) {
 		this.feedBacks = feedBacks;
 	}
 
 	/**
-	 * @param id
-	 *            l'identifient de la classe Survey
+	 * @param id l'identifient de la classe Survey
+	 *
 	 */
 	public void setId(final Integer id) {
 		this.id = id;
 	}
 
 	/**
-	 * @param startDate
-	 *            la date de début du sondage
+	 * @param startDate la date de début du sondage
+	 *
 	 */
 	public void setStartDate(final LocalDate startDate) {
 		this.startDate = startDate;

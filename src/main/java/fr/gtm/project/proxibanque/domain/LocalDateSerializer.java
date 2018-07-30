@@ -9,6 +9,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
+/**
+*
+* @author Fabien - Faouzi - Nadir  Classe de parsing pour serializer les dates en Json
+*
+*/
 public class LocalDateSerializer extends StdSerializer<LocalDate> {
 
     private static final long serialVersionUID = 1L;
