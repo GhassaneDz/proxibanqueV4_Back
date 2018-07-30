@@ -42,7 +42,10 @@
 			            </div>
 			        </div>
 			    </div>
-				<button type="submit" class="btn btn-success">Valider</button>
+			    <c:if test="${closeDateExc != null}">
+					<button type="submit" class="btn btn-success" disabled="disabled">Valider</button>
+					<div class="alert alert-danger my-2">${closeDateExc}</div>
+				</c:if>
 			</div>
 		</form:form>
 	</div>

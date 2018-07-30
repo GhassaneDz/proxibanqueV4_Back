@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.gtm.project.proxibanque.business.FeedbackService;
 import fr.gtm.project.proxibanque.business.SurveyService;
+import fr.gtm.project.proxibanque.domain.CloseDateException;
+import fr.gtm.project.proxibanque.domain.EndDateException;
 import fr.gtm.project.proxibanque.domain.Survey;
 
 @Controller
@@ -26,13 +29,20 @@ public class IndexController {
 
 	@PostMapping({ "/", "/index" })
 	public ModelAndView createSurvey(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate startDate,
-			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate endDate) {
+			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate endDate,
+			final RedirectAttributes ra) {
 
+		String messageCloseDateExc = "";
 		final Survey survey = new Survey();
 		survey.setStartDate(startDate);
 		survey.setEndDate(endDate);
-		this.surveyService.create(survey);
+		try {
+			this.surveyService.create(survey);
+		} catch (final EndDateException e) {
+			messageCloseDateExc = e.getMessage();
+		}
 		final ModelAndView mav = new ModelAndView("redirect:/index.html");
+		ra.addFlashAttribute("CloseDateExc", messageCloseDateExc);
 		return mav;
 	}
 
@@ -56,14 +66,21 @@ public class IndexController {
 	public ModelAndView editSurvey(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate startDate,
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate endDate,
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate closeDate,
-			@RequestParam("id") final Integer id) {
-
+			@RequestParam("id") final Integer id, final RedirectAttributes ra) {
+		int idSurvey = 0;
+		String messageEndDateExc = "";
 		final Survey survey = this.surveyService.read(id);
 		survey.setStartDate(startDate);
 		survey.setEndDate(endDate);
 		survey.setCloseDate(closeDate);
-		this.surveyService.update(survey);
-		final ModelAndView mav = new ModelAndView("redirect:/index.html");
+		idSurvey = survey.getId();
+		try {
+			this.surveyService.update(survey);
+		} catch (final CloseDateException e) {
+			messageEndDateExc = e.getMessage();
+		}
+		final ModelAndView mav = new ModelAndView("redirect:/EditSurvey.html?id=" + idSurvey);
+		ra.addFlashAttribute("EndDateExc", messageEndDateExc);
 		return mav;
 	}
 

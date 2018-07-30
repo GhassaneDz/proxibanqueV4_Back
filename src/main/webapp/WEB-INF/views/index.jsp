@@ -14,29 +14,30 @@
 <div class="container">
 	<h2>Ajouter un sondage</h2>
 	<div class="container-fluid">
-		<form:form modelAttribute="modelSurvey" method="post">
-			<div class="container">
+		<form method="post">
 			    <div class="col-md-4">
 			        <div class="form-group">
-			            <div class="input-group date" id="startDate">
-			            	<label for="startDate">StartDate : </label>
-			                <input name="startDate" type="date" class="form-control" id="startDate" required="required" />
-			            </div>
+		            	<label for="startDate">StartDate : </label>
+		                <input name="startDate" type="date" class="form-control" id="startDate" required="required" />
 			        </div>
 			    </div>
 			    <div class="col-md-4">
 			        <div class="form-group">
-			            <div class="input-group date" id="EndDate">
-			            	<label for="endDate">EndDate : </label>
-			                <input name="endDate" type="date" class="form-control" id="endDate" required="required" />
-			            </div>
+		            	<label for="endDate">EndDate : </label>
+		                <input name="endDate" type="date" class="form-control" id="endDate" required="required" />
 			        </div>
 			    </div>
-			    <span>
-				<button type="submit" class="btn btn-success">Valider</button>			    
-			    </span>
-			</div>
-		</form:form>
+			    <c:if test="${isActualSurveyExist != 0}">
+					<button type="submit" class="btn btn-success">Valider</button>
+				</c:if>
+				<c:if test="${endDateExc != null}">
+					<div class="alert alert-danger my-2">${endDateExc}</div>
+				</c:if>	
+				<c:if test="${isActualSurveyExist == 0}">
+					<button type="submit" class="btn btn-success" disabled="disabled">Valider</button>
+					<div class="alert warning my-2" role="alert">Vous ne pouvez pas créer de sondage car il existe déjà un sondage en cours.</div>
+				</c:if>		    
+		</form>
 	</div>
 	<hr>
 	<h2>Sondage en cours</h2>	
@@ -46,8 +47,8 @@
 			<th>Start Date</th>
 			<th>End Date</th>
 			<th>Close Date</th>
-			<th></th>
-			<th></th>
+			<th>See Details</th>
+			<th>Close Publication</th>
 		</tr>
 		
 	<c:url value="/DetailsSurvey.html" var="detail" />
@@ -60,10 +61,16 @@
 				<td><c:out value="${survey.endDate}"></c:out></td>
 				<td><c:out value="${survey.closeDate}"></c:out></td>
 				<td><a href="${detail}?id=${survey.id}" class="detail">See Details</a></td>
-				<td><a href="${edit}?id=${survey.id}" class="edit">Close Publication</a></td>
+				<c:if test="${survey.closeDate==null}">
+					<td><a href="${edit}?id=${survey.id}" class="edit">Close Publication</a></td>
+				</c:if>
+				<c:if test="${survey.closeDate!=null}">
+					<td></td>
+				</c:if>
 			</tr>
 		</c:forEach>
 	</table>
+</div>
 <br>
 <hr>
 </body>
