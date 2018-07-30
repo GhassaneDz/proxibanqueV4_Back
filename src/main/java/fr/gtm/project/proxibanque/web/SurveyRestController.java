@@ -27,7 +27,9 @@ public class SurveyRestController {
 	private SurveyService service;
 
 	/**
-	 * La méthode checkSurvey est un WebService qui retourne le sondage actif sans paramètre
+	 * La méthode checkSurvey est un WebService qui retourne le sondage actif sans
+	 * paramètre La méthode checkSurvey est un WebService qui retourne le sondage
+	 * actif. Il est égal à 0 s'il n'y a pas de survey.
 	 *
 	 * @return result, le sondage actif
 	 */
@@ -46,8 +48,12 @@ public class SurveyRestController {
 	/**
 	 * WebService de création d'un Survey
 	 * @param survey Le paramètre est un objet de type Survey
+	 * @param survey
+	 *            Le paramètre est un objet de type Survey
 	 * @return Le retour est la création d'un nouvel objet de type Survey
-	 * @throws EndDateException Pour valider que la date de clôture ne puisse pas être avant la date de lancement.
+	 * @throws EndDateException
+	 *             Pour valider que la date de clôture ne puisse pas être avant la
+	 *             date de lancement.
 	 */
 	@PostMapping({ "", "/" })
 	public Survey create(@RequestBody final Survey survey) throws EndDateException {
@@ -57,6 +63,9 @@ public class SurveyRestController {
 	/**
 	 * WebService de suppréssion d'un Survey
 	 * @param id Le paramètre est l'id de l'objet Survey à supprimer
+	 *
+	 * @param id
+	 *            Le paramètre est l'id de l'objet Survey à supprimer
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/delete/{id}")
@@ -82,6 +91,8 @@ public class SurveyRestController {
 	/**
 	 * WebService de lecture d'un survey spécifique
 	 * @param id Paramètre du survey spécifique à afficher.
+	 * @param id
+	 *            Paramètre du survey spécifique à afficher.
 	 * @return Le survey demandé
 	 */
 	@RequestMapping("/read/{id}")
@@ -95,8 +106,13 @@ public class SurveyRestController {
 	/**
 	 * WebService de mise à jours d'un survey
 	 * @param survey Survey à mettre à jours
+	 *
+	 * @param survey
+	 *            Survey à mettre à jours
 	 * @return La mise à jours du survey
-	 * @throws CloseDateException Pour valider que la date de clôture ne soit pas avant la date de lancement
+	 * @throws CloseDateException
+	 *             Pour valider que la date de clôture ne soit pas avant la date de
+	 *             lancement
 	 */
 	@PutMapping({ "", "/" })
 	public Survey update(@RequestBody final Survey survey) throws CloseDateException {

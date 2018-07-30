@@ -38,17 +38,17 @@ public class IndexController {
 	public ModelAndView createSurvey(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate startDate,
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate endDate,
 			final RedirectAttributes ra) {
-		String messageCloseDateExc = "";
+		String messageEndDateExc = "";
 		final Survey survey = new Survey();
 		survey.setStartDate(startDate);
 		survey.setEndDate(endDate);
 		try {
 			this.surveyService.create(survey);
 		} catch (final EndDateException e) {
-			messageCloseDateExc = e.getMessage();
+			messageEndDateExc = e.getMessage();
 		}
 		final ModelAndView mav = new ModelAndView("redirect:/index.html");
-		ra.addFlashAttribute("CloseDateExc", messageCloseDateExc);
+		ra.addFlashAttribute("endDateExc", messageEndDateExc);
 		return mav;
 	}
 
@@ -93,19 +93,24 @@ public class IndexController {
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate closeDate,
 			@RequestParam("id") final Integer id, final RedirectAttributes ra) {
 		int idSurvey = 0;
-		String messageEndDateExc = "";
+		String messageCloseDateExc = "";
 		final Survey survey = this.surveyService.read(id);
 		survey.setStartDate(startDate);
 		survey.setEndDate(endDate);
 		survey.setCloseDate(closeDate);
 		idSurvey = survey.getId();
+		final ModelAndView mav = new ModelAndView();
 		try {
 			this.surveyService.update(survey);
 		} catch (final CloseDateException e) {
-			messageEndDateExc = e.getMessage();
+			messageCloseDateExc = e.getMessage();
 		}
-		final ModelAndView mav = new ModelAndView("redirect:/EditSurvey.html?id=" + idSurvey);
-		ra.addFlashAttribute("EndDateExc", messageEndDateExc);
+		if (messageCloseDateExc == "") {
+			mav.setViewName("redirect:/index.html");
+		} else {
+			mav.setViewName("redirect:/EditSurvey.html?id=" + idSurvey);
+			ra.addFlashAttribute("CloseDateExc", messageCloseDateExc);
+		}
 		return mav;
 	}
 
