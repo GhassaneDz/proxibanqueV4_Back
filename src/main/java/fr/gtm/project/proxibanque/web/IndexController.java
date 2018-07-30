@@ -27,6 +27,13 @@ public class IndexController {
 	@Autowired
 	private SurveyService surveyService;
 
+	/**
+	 * Methode de création d'un survey
+	 * @param startDate Date de début du survey
+	 * @param endDate Date de fin du survey
+	 * @param ra Pour effectuer une redirection avec les paramètres
+	 * @return Un mav avec le survey demandé
+	 */
 	@PostMapping({ "/", "/index" })
 	public ModelAndView createSurvey(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate startDate,
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate endDate,
@@ -45,6 +52,11 @@ public class IndexController {
 		return mav;
 	}
 
+	/**
+	 * Affichage d'une page de feedback d'un survey
+	 * @param id Pour affiche un feedback spécifique
+	 * @return Une page de détail de feedback d'un survey
+	 */
 	@GetMapping({ "/DetailsSurvey" })
 	public ModelAndView detailsSurvey(@RequestParam("id") final Integer id) {
 		final ModelAndView mav = new ModelAndView("DetailsSurvey");
@@ -54,6 +66,11 @@ public class IndexController {
 		return mav;
 	}
 
+	/**
+	 * Affichage d'un survey spécifique
+	 * @param id Pour trouver un survey spécifique
+	 * @return Une page détail correspondante à l'id du survey
+	 */
 	@GetMapping({ "/EditSurvey" })
 	public ModelAndView editSurvey(@RequestParam("id") final Integer id) {
 		final ModelAndView mav = new ModelAndView("EditSurvey");
@@ -61,6 +78,15 @@ public class IndexController {
 		return mav;
 	}
 
+	/**
+	 * Affichage d'un survey avec toutes ces informations
+	 * @param startDate Date de démarrage actuel du survey
+	 * @param endDate Date de fin actuel du survey
+	 * @param closeDate Date de fermeture du survey
+	 * @param id Identifiant correspondant au survey
+	 * @param ra Traitement de la redirection avec les paramètres
+	 * @return La page d'edition du survey
+	 */
 	@PostMapping("/EditSurvey")
 	public ModelAndView editSurvey(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate startDate,
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate endDate,
@@ -83,11 +109,15 @@ public class IndexController {
 		return mav;
 	}
 
+	/**
+	 * Ahhichage de tout les survey dans la page d'acceuil
+	 * @return La page d'acceuil index avec la liste des survey
+	 */
 	@GetMapping("/index")
 	public ModelAndView index() {
 		final ModelAndView mav = new ModelAndView("index");
 		final List<Survey> survey = this.surveyService.list();
-		final int isActualSurveyExist = this.surveyService.getActualSurvey();
+		final Integer isActualSurveyExist = this.surveyService.getActualSurvey();
 		mav.addObject("surveyList", survey);
 		mav.addObject("surveys", this.surveyService.list());
 		mav.addObject("isActualSurveyExist", isActualSurveyExist);

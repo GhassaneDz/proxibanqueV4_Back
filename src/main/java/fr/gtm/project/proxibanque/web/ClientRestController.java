@@ -24,7 +24,7 @@ public class ClientRestController {
 	private ClientService service;
 
 	/**
-	 *
+	 * Méthode de création d'un client
 	 * @param client Client à crée
 	 * @return La création du client
 	 */
@@ -35,7 +35,7 @@ public class ClientRestController {
 	}
 
 	/**
-	 *
+	 * Méthode de suppréssion d'un client
 	 * @param id Client à supprimé
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
@@ -45,7 +45,7 @@ public class ClientRestController {
 	}
 
 	/**
-	 *
+	 * Méthode qui liste tout les clients
 	 * @return La liste des clients
 	 */
 	@RequestMapping("/list")
@@ -54,7 +54,7 @@ public class ClientRestController {
 	}
 
 	/**
-	 *
+	 * Méthode qui affiche un client spécifique
 	 * @param id Client spécifique à afficher
 	 * @return Le client à afficher
 	 */
@@ -67,7 +67,7 @@ public class ClientRestController {
 	}
 
 	/**
-	 *
+	 * Méthode de mise à jours d'un client spécifique
 	 * @param client Client à mettre à jours
 	 * @return Le client à jours
 	 */

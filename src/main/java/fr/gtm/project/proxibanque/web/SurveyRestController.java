@@ -44,7 +44,7 @@ public class SurveyRestController {
 	}
 
 	/**
-	 *
+	 * WebService de création d'un Survey
 	 * @param survey Le paramètre est un objet de type Survey
 	 * @return Le retour est la création d'un nouvel objet de type Survey
 	 * @throws EndDateException Pour valider que la date de clôture ne puisse pas être avant la date de lancement.
@@ -55,7 +55,7 @@ public class SurveyRestController {
 	}
 
 	/**
-	 *
+	 * WebService de suppréssion d'un Survey
 	 * @param id Le paramètre est l'id de l'objet Survey à supprimer
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
@@ -65,7 +65,7 @@ public class SurveyRestController {
 	}
 
 	/**
-	 *
+	 * WebService d'affichage de tout les survey
 	 * @return Method qui liste tout les survey
 	 */
 	@RequestMapping("/{id}")
@@ -80,7 +80,7 @@ public class SurveyRestController {
 	}
 
 	/**
-	 *
+	 * WebService de lecture d'un survey spécifique
 	 * @param id Paramètre du survey spécifique à afficher.
 	 * @return Le survey demandé
 	 */
@@ -93,7 +93,7 @@ public class SurveyRestController {
 	}
 
 	/**
-	 *
+	 * WebService de mise à jours d'un survey
 	 * @param survey Survey à mettre à jours
 	 * @return La mise à jours du survey
 	 * @throws CloseDateException Pour valider que la date de clôture ne soit pas avant la date de lancement

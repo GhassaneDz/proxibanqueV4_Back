@@ -16,7 +16,7 @@ public class FeedbackService {
 	private FeedBackRepository repo;
 
 	/**
-	 *
+	 * Méthode service de creation d'un feedback
 	 * @param entity Objet Feedback à crée
 	 * @return Le nouvel objet feedback
 	 */
@@ -25,7 +25,7 @@ public class FeedbackService {
 	}
 
 	/**
-	 *
+	 * Méthode service de supprésion d'un feedback
 	 * @param id Id de l'objet Fedback à supprimer
 	 */
 	public void delete(final Integer id) {
@@ -33,7 +33,7 @@ public class FeedbackService {
 	}
 
 	/**
-	 *
+	 * Méthode service de décrementation d'un feedback négatif
 	 * @param id Feedback auquel il faut affecter un décrement
 	 * @return Le Feedback avec la nouvelle valeur de décrement
 	 */
@@ -43,7 +43,7 @@ public class FeedbackService {
 	}
 
 	/**
-	 *
+	 *Méthode service d'incrémentation d'un feedback positif
 	 * @param id Feedback auquel il faut affecter un incrément
 	 * @return Le Feedback avec la nouvelle valeur d'incrémentation
 	 */
@@ -53,7 +53,7 @@ public class FeedbackService {
 	}
 
 	/**
-	 *
+	 * Méthode service qui retourne un feedback qui n'est pas null
 	 * @param id Pour trouver un feedback qui n'est pas null
 	 * @return Le feedback qui n'est pas null
 	 */
@@ -63,7 +63,7 @@ public class FeedbackService {
 	}
 
 	/**
-	 *
+	 * Méthode service qui retourne un feedback qui est null
 	 * @param id Pour trouver un feedback qui est null
 	 * @return Le feedback avec un commentaire null
 	 */
@@ -73,7 +73,7 @@ public class FeedbackService {
 	}
 
 	/**
-	 *
+	 * Méthode service de listing des feedback
 	 * @return La liste des feedback
 	 */
 	public List<FeedBack> list() {
@@ -81,7 +81,7 @@ public class FeedbackService {
 	}
 
 	/**
-	 *
+	 * Méthode service de listing d'un feedback spécifique
 	 * @param id Pour lire un feedback spécifique avec son Id
 	 * @return Le feedback associé à l'id
 	 */
@@ -95,7 +95,7 @@ public class FeedbackService {
 	}
 
 	/**
-	 *
+	 * Méthode service de mise à jour d'un feedback spécifique
 	 * @param entity Le feedback à mettre à jours
 	 * @return Le feedback à jours
 	 */

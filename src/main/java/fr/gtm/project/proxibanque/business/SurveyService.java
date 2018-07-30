@@ -19,7 +19,7 @@ public class SurveyService {
 	private SurveyRepository repo;
 
 	/**
-	 *
+	 * Méthode service de création d'un survey
 	 * @param entity Nouveau survey à crée en paramètre
 	 * @return La création du nouveau survey si aucune erreur est thrown
 	 * @throws EndDateException Validation de la date de clôture
@@ -33,7 +33,7 @@ public class SurveyService {
 	}
 
 	/**
-	 *
+	 * Méthode service de suppréssion d'un survey
 	 * @param id Identifiant du survey à supprimer
 	 */
 	public void delete(final Integer id) {
@@ -41,7 +41,7 @@ public class SurveyService {
 	}
 
 	/**
-	 *
+	 * Méthode service de consultation de survey en cours
 	 * @return Voir si il y a un sondage en cours
 	 */
 	public int getActualSurvey() {
@@ -57,7 +57,7 @@ public class SurveyService {
 	}
 
 	/**
-	 *
+	 * Méthode service de consultation de survey clôturable
 	 * @return Le survey qui peut être clôturé
 	 */
 	public int isSurveyClosable() {
@@ -74,7 +74,7 @@ public class SurveyService {
 	}
 
 	/**
-	 *
+	 * Méthode service de listing de tout les survey
 	 * @return La liste des survey
 	 */
 	public List<Survey> list() {
@@ -82,7 +82,7 @@ public class SurveyService {
 	}
 
 	/**
-	 *
+	 * Méthode service d'affichage d'un survey spécifique par son id
 	 * @param id du survey spécifique
 	 * @return le survey correspondant à l'id
 	 */
@@ -96,7 +96,7 @@ public class SurveyService {
 	}
 
 	/**
-	 *
+	 * Méthode service de mise à jours d'un survey
 	 * @param entity Le survey à mettre à jours
 	 * @return Le survey avec les changements
 	 * @throws CloseDateException Pour ne pas attribuer une date de clôture antérieur à la date de publication

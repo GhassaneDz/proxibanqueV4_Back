@@ -24,7 +24,7 @@ public class FeedBackRestController {
 	private FeedbackService FBservice;
 
 	/**
-	 *
+	 * Méthode de création d'un message de feedback
 	 * @param feedBack Pour la création d'un feedback
 	 * @return Le feedback à crée
 	 */
@@ -34,7 +34,7 @@ public class FeedBackRestController {
 	}
 
 	/**
-	 *
+	 *Suppréssion d'un feedback
 	 * @param id Pour la suppréssion d'un feedback spécifique
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
@@ -44,7 +44,7 @@ public class FeedBackRestController {
 	}
 
 	/**
-	 *
+	 * Listing des feedback
 	 * @return La liste des feedback
 	 */
 	@RequestMapping("/")
@@ -66,7 +66,7 @@ public class FeedBackRestController {
 	}
 
 	/**
-	 *
+	 * Mise à jours des feedback
 	 * @param feedBack Pour la mise à jours d'un feedback
 	 * @return Le feedback avec les informations associés
 	 */
