@@ -27,7 +27,7 @@ public class SurveyRestController {
 	private SurveyService service;
 
 	/**
-	 * La méthode checkSurvey est un WebService qui retourne le sondage actif
+	 * La méthode checkSurvey est un WebService qui retourne le sondage actif sans paramètre
 	 *
 	 * @return result, le sondage actif
 	 */
@@ -43,17 +43,31 @@ public class SurveyRestController {
 		return result;
 	}
 
+	/**
+	 *
+	 * @param survey Le paramètre est un objet de type Survey
+	 * @return Le retour est la création d'un nouvel objet de type Survey
+	 * @throws EndDateException Pour valider que la date de clôture ne puisse pas être avant la date de lancement.
+	 */
 	@PostMapping({ "", "/" })
 	public Survey create(@RequestBody final Survey survey) throws EndDateException {
 		return this.service.create(survey);
 	}
 
+	/**
+	 *
+	 * @param id Le paramètre est l'id de l'objet Survey à supprimer
+	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable final Integer id) {
 		this.service.delete(id);
 	}
 
+	/**
+	 *
+	 * @return Method qui liste tout les survey
+	 */
 	@RequestMapping("/{id}")
 	public Survey getSurveyId(@PathVariable final Integer id) {
 
@@ -65,6 +79,11 @@ public class SurveyRestController {
 		return this.service.list();
 	}
 
+	/**
+	 *
+	 * @param id Paramètre du survey spécifique à afficher.
+	 * @return Le survey demandé
+	 */
 	@RequestMapping("/read/{id}")
 	public Survey read(@PathVariable final Integer id) {
 		if (this.service.read(id) != null) {
@@ -73,6 +92,12 @@ public class SurveyRestController {
 		return null;
 	}
 
+	/**
+	 *
+	 * @param survey Survey à mettre à jours
+	 * @return La mise à jours du survey
+	 * @throws CloseDateException Pour valider que la date de clôture ne soit pas avant la date de lancement
+	 */
 	@PutMapping({ "", "/" })
 	public Survey update(@RequestBody final Survey survey) throws CloseDateException {
 		return this.service.update(survey);

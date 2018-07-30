@@ -18,6 +18,12 @@ public class SurveyService {
 	@Autowired
 	private SurveyRepository repo;
 
+	/**
+	 *
+	 * @param entity Nouveau survey à crée en paramètre
+	 * @return La création du nouveau survey si aucune erreur est thrown
+	 * @throws EndDateException Validation de la date de clôture
+	 */
 	public Survey create(final Survey entity) throws EndDateException {
 		if (entity.getEndDate().isBefore(entity.getStartDate())) {
 			throw new EndDateException(
@@ -26,10 +32,18 @@ public class SurveyService {
 		return this.repo.save(entity);
 	}
 
+	/**
+	 *
+	 * @param id Identifiant du survey à supprimer
+	 */
 	public void delete(final Integer id) {
 		this.repo.deleteById(id);
 	}
 
+	/**
+	 *
+	 * @return Voir si il y a un sondage en cours
+	 */
 	public int getActualSurvey() {
 		int result = 0;
 		final LocalDate today = LocalDate.now();
@@ -46,12 +60,16 @@ public class SurveyService {
 		return result;
 	}
 
+	/**
+	 *
+	 * @return Le survey qui peut être clôturé
+	 */
 	public int isSurveyClosable() {
 		int isSurveyCurrent = 0;
 		final LocalDate today = LocalDate.now();
 		final List<Survey> listSurvey = this.list();
 		for (final Survey survey : listSurvey) {
-			if (((survey.getCloseDate() == null) || survey.getEndDate().isAfter(today))) {
+			if (survey.getCloseDate() == null || survey.getEndDate().isAfter(today)) {
 				isSurveyCurrent = survey.getId();
 			}
 		}
@@ -59,10 +77,19 @@ public class SurveyService {
 
 	}
 
+	/**
+	 *
+	 * @return La liste des survey
+	 */
 	public List<Survey> list() {
 		return this.repo.findAll();
 	}
 
+	/**
+	 *
+	 * @param id du survey spécifique
+	 * @return le survey correspondant à l'id
+	 */
 	public Survey read(final Integer id) {
 		Survey result = null;
 		final Optional<Survey> entity = this.repo.findById(id);
@@ -72,6 +99,12 @@ public class SurveyService {
 		return result;
 	}
 
+	/**
+	 *
+	 * @param entity Le survey à mettre à jours
+	 * @return Le survey avec les changements
+	 * @throws CloseDateException Pour ne pas attribuer une date de clôture antérieur à la date de publication
+	 */
 	public Survey update(final Survey entity) throws CloseDateException {
 		if (entity.getCloseDate().isBefore(entity.getStartDate())) {
 			throw new CloseDateException(

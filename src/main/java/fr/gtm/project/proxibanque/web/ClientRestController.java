@@ -23,23 +23,41 @@ public class ClientRestController {
 	@Autowired
 	private ClientService service;
 
+	/**
+	 *
+	 * @param client Client à crée
+	 * @return La création du client
+	 */
 	@PostMapping({ "", "/" })
 	public Client create(@RequestBody final Client client) {
 		return this.service.create(client);
 
 	}
 
+	/**
+	 *
+	 * @param id Client à supprimé
+	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable final Integer id) {
 		this.service.delete(id);
 	}
 
+	/**
+	 *
+	 * @return La liste des clients
+	 */
 	@RequestMapping("/list")
 	public List<Client> list() {
 		return this.service.list();
 	}
 
+	/**
+	 *
+	 * @param id Client spécifique à afficher
+	 * @return Le client à afficher
+	 */
 	@RequestMapping("/read/{id}")
 	public Client read(@PathVariable final Integer id) {
 		if (this.service.read(id) != null) {
@@ -48,6 +66,11 @@ public class ClientRestController {
 		return null;
 	}
 
+	/**
+	 *
+	 * @param client Client à mettre à jours
+	 * @return Le client à jours
+	 */
 	@PutMapping({ "", "/" })
 	public Client update(@RequestBody final Client client) {
 		return this.service.update(client);

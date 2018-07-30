@@ -23,22 +23,40 @@ public class FeedBackRestController {
 	@Autowired
 	private FeedbackService FBservice;
 
+	/**
+	 *
+	 * @param feedBack Pour la création d'un feedback
+	 * @return Le feedback à crée
+	 */
 	@PostMapping({ "", "/" })
 	public FeedBack create(@RequestBody final FeedBack feedBack) {
 		return this.FBservice.create(feedBack);
 	}
 
+	/**
+	 *
+	 * @param id Pour la suppréssion d'un feedback spécifique
+	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable final Integer id) {
 		this.FBservice.delete(id);
 	}
 
+	/**
+	 *
+	 * @return La liste des feedback
+	 */
 	@RequestMapping("/")
 	public List<FeedBack> list() {
 		return this.FBservice.list();
 	}
 
+	/**
+	 *
+	 * @param id Pour la lecture d'un feedback spécifique
+	 * @return Le feedback spécifique à l'id
+	 */
 	@RequestMapping("/{id}")
 	public FeedBack read(@PathVariable final Integer id) {
 		if (this.FBservice.read(id) != null) {
@@ -47,6 +65,11 @@ public class FeedBackRestController {
 		return null;
 	}
 
+	/**
+	 *
+	 * @param feedBack Pour la mise à jours d'un feedback
+	 * @return Le feedback avec les informations associés
+	 */
 	@PutMapping({ "", "/" })
 	public FeedBack update(@RequestBody final FeedBack feedBack) {
 		return this.FBservice.update(feedBack);
