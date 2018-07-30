@@ -37,11 +37,11 @@
 		                <input name="endDate"  class="form-control" id="endDate" value="${survey.endDate}" type="hidden"/>
 			        </div>
 			    </div>
-			    <c:if test="${CloseDateExc != null}">
+			    <c:if test="${not empty CloseDateExc}">
 					<button type="submit" class="btn btn-success">Valider</button><hr>
 					<div class="alert alert-warning col-md-8">${CloseDateExc}</div>
 				</c:if>
-				<c:if test="${CloseDateExc == null}">
+				<c:if test="${empty CloseDateExc}">
 					<button type="submit" class="btn btn-success" >Valider</button>
 				</c:if>
 			</div>

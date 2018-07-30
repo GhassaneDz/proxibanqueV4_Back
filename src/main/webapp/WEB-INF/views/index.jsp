@@ -29,7 +29,7 @@
 		                <div class="invalid-feedback">Merci de remplir ce champ pour validation</div>
 			        </div>
 			    </div>
-			    <c:if test="${isActualSurveyExist != 0}">
+			    <c:if test="${not empty isActualSurveyExist}">
 					<button type="submit" class="btn btn-success" disabled="disabled">Valider</button><hr>
 					<div class="alert alert-warning col-md-8">
 					  Vous ne pouvez plus créer un nouveau sondage car il existe un sondage en cours. Cloturez le sondage actuel pour pouvoir en créer un nouveau.
@@ -40,7 +40,7 @@
 						<strong>Attention! </strong>${endDateExc}
 					</div>
 				</c:if>	
-				<c:if test="${isActualSurveyExist == 0}">
+				<c:if test="${empty isActualSurveyExist }">
 					<button type="submit" class="btn btn-success">Valider</button>
 				</c:if>		    
 		</form>

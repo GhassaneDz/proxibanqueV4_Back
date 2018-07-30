@@ -38,7 +38,7 @@ ul > li {
 								<ul>
 								<c:choose>
 								    <c:when test="${empty feedback.feedBackText}">
-								        <h2>0dd</h2>
+								        <h2></h2>
 								    </c:when>
 							         <c:otherwise>
 							            <li><c:out value="${feedback.feedBackText}" /></li>
