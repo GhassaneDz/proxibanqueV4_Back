@@ -88,8 +88,10 @@ public class IndexController {
 	public ModelAndView index() {
 		final ModelAndView mav = new ModelAndView("index");
 		final List<Survey> survey = this.surveyService.list();
+		final int isActualSurveyExist = this.surveyService.getActualSurvey();
 		mav.addObject("surveyList", survey);
 		mav.addObject("surveys", this.surveyService.list());
+		mav.addObject("isActualSurveyExist", isActualSurveyExist);
 		return mav;
 	}
 

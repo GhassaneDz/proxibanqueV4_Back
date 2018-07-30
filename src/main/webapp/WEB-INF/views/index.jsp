@@ -28,14 +28,18 @@
 			        </div>
 			    </div>
 			    <c:if test="${isActualSurveyExist != 0}">
-					<button type="submit" class="btn btn-success">Valider</button>
+					<button type="submit" class="btn btn-success" disabled="disabled">Valider</button>
+					<div class="alert alert-warning col-md-8">
+					  <strong>Attention!</strong> Vous ne pouvez pas créer un nouveau sondage car il existe un sondage en cours. Cloturez le sondage actuel pour pouvoir en créer un nouveau.
+					</div>
 				</c:if>
 				<c:if test="${endDateExc != null}">
-					<div class="alert alert-danger my-2">${endDateExc}</div>
+					<div class="alert alert-warning col-md-8">
+						<strong>Attention!</strong>${endDateExc}
+					</div>
 				</c:if>	
 				<c:if test="${isActualSurveyExist == 0}">
-					<button type="submit" class="btn btn-success" disabled="disabled">Valider</button>
-					<div class="alert warning my-2" role="alert">Vous ne pouvez pas créer de sondage car il existe déjà un sondage en cours.</div>
+					<button type="submit" class="btn btn-success">Valider</button>
 				</c:if>		    
 		</form>
 	</div>
