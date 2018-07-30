@@ -14,40 +14,38 @@
 <div class="container">
 	<h2>Editer le sondage</h2>
 	<div class="container-fluid">
-		<form:form modelAttribute="modelSurvey" method="post">
+		<form method="post">
 			<div class="container">
 			    <div class="col-md-4">
 			        <div class="form-group">
-			            <div class="input-group date" id="startDate">
-			            	<label for="startDate">StartDate : </label>
-			                <input name="startDate" type="date" class="form-control" id="startDate" value="${survey.startDate}" required="required" disabled />
-			            </div>
+		            	<label for="startDate">StartDate : </label>
+		                <input name="startDate" type="date" class="form-control" id="startDate" value="${survey.startDate}" required="required" disabled />
 			        </div>
 			    </div>
 			    <div class="col-md-4">
 			        <div class="form-group">
-			            <div class="input-group date" id="EndDate">
-			            	<label for="id">EndDate : </label>
-			                <input name="endDate" type="date" class="form-control" id="endDate" value="${survey.endDate}" required="required" disabled/>
-			            </div>
+		            	<label for="id">EndDate : </label>
+		                <input name="endDate" type="date" class="form-control" id="endDate" value="${survey.endDate}" required="required" disabled/>
 			        </div>
 			    </div>
 			    <div class="col-md-4">
 			        <div class="form-group">
-			            <div class="input-group date" id="CloseDate">
-			            	<label for="closeDate">CloseDate : </label>
-			                <input name="closeDate" type="date" class="form-control" id="closeDate" required="required"/>
-			                <input name="startDate"  class="form-control" id="startDate" value="${survey.startDate}" type="hidden"/>
-			                <input name="endDate"  class="form-control" id="endDate" value="${survey.endDate}" type="hidden"/>
-			            </div>
+		            	<label for="closeDate">CloseDate : </label>
+		                <input name="closeDate" type="date" class="form-control" id="closeDate" required="required"/>
+		                
+		                <input name="startDate"  class="form-control" id="startDate" value="${survey.startDate}" type="hidden"/>
+		                <input name="endDate"  class="form-control" id="endDate" value="${survey.endDate}" type="hidden"/>
 			        </div>
 			    </div>
-			    <c:if test="${closeDateExc != null}">
-					<button type="submit" class="btn btn-success" disabled="disabled">Valider</button>
-					<div class="alert alert-danger my-2">${closeDateExc}</div>
+			    <c:if test="${EndDateExc != null}">
+					<button type="submit" class="btn btn-success">Valider</button><hr>
+					<div class="alert alert-warning col-md-8">${EndDateExc}</div>
+				</c:if>
+				<c:if test="${EndDateExc == null}">
+					<button type="submit" class="btn btn-success" >Valider</button>
 				</c:if>
 			</div>
-		</form:form>
+		</form>
 	</div>
 	<hr>
 <c:url value="/index.html" var="index" />
