@@ -10,20 +10,34 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 /**
-*
-* @author Fabien - Faouzi - Nadir  Classe de parsing pour serializer les dates en Json
-*
-*/
+ * Classe de parsing pour serializer les dates en Json
+ *
+ * @author Fabien - Faouzi - Nadir
+ *
+ */
 public class LocalDateSerializer extends StdSerializer<LocalDate> {
 
-    private static final long serialVersionUID = 1L;
+	/**
+	 * Création d'un numéro de sérialisation
+	 */
+	private static final long serialVersionUID = 1L;
 
-    public LocalDateSerializer(){
-        super(LocalDate.class);
-    }
+	/**
+	 * constructeur de sérialisation des dates
+	 */
+	public LocalDateSerializer() {
+		super(LocalDate.class);
+	}
 
-    @Override
-    public void serialize(final LocalDate value, final JsonGenerator gen, final SerializerProvider sp) throws IOException, JsonProcessingException {
-        gen.writeString(value.format(DateTimeFormatter.ISO_LOCAL_DATE));
-    }
+	/**
+	 * Méthode de sérialisation des dates avec gestion des erreurs IOException et
+	 * JsonProcessingException
+	 * 
+	 * @return la LocalDate sérialisée
+	 */
+	@Override
+	public void serialize(final LocalDate value, final JsonGenerator gen, final SerializerProvider sp)
+			throws IOException, JsonProcessingException {
+		gen.writeString(value.format(DateTimeFormatter.ISO_LOCAL_DATE));
+	}
 }

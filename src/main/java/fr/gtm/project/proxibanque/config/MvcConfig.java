@@ -13,20 +13,40 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+/**
+ * MvcConfig paramètre Spring. Il paramètre - le Cors qui permet l'échange entre
+ * le back/front au niveau des requètes. - le managerFactoryBean - la gestion
+ * des transactions - le view resolver permettant à JASPER (tomCat) de traduire
+ * une .jsp en .html
+ *
+ * @author Kamir Elsisi, Steven Roman, Antoine Volatron
+ *
+ */
 @SuppressWarnings("deprecation")
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = { "fr.gtm.project.proxibanque.web", "fr.gtm.project.proxibanque.business" })
 @EnableJpaRepositories(basePackages = { "fr.gtm.project.proxibanque.dao" })
 public class MvcConfig extends WebMvcConfigurerAdapter {
-	private final Integer maxAge = 3600;
+	private static final Integer MAXAGE = 3600;
 
+	/**
+	 * addCorsMappings permet de d'accepter des requètes provenant du front
+	 * (angular) vers le back (JEE).
+	 *
+	 **/
 	@Override
 	public void addCorsMappings(final CorsRegistry registry) {
 		registry.addMapping("/**").allowedOrigins("*").allowedMethods("*").allowedHeaders("*").allowCredentials(true)
-				.maxAge(this.maxAge);
+				.maxAge(MvcConfig.MAXAGE);
 	}
 
+	/**
+	 * LocalContainerEntityManagerFactoryBean parametre le container de bean à
+	 * partir de la persistence.
+	 *
+	 * @return lcemfb le container de bean
+	 */
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		final LocalContainerEntityManagerFactoryBean lcemfb = new LocalContainerEntityManagerFactoryBean();
@@ -34,11 +54,22 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		return lcemfb;
 	}
 
+	/**
+	 * PlatformTransactionManager gère les transaction avec la base de donnée
+	 *
+	 * @return la plate forme de transaction manager
+	 */
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		return new JpaTransactionManager(this.entityManagerFactory().getObject());
 	}
 
+	/**
+	 * InternalResourceViewResolver permet de paramétrer les pages JSP lors de
+	 * l'appel des controlleurs.
+	 *
+	 * @return
+	 */
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		final InternalResourceViewResolver vr = new InternalResourceViewResolver();

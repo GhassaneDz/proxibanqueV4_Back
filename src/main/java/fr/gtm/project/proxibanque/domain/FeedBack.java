@@ -30,7 +30,7 @@ public class FeedBack implements Serializable {
 	@JsonIgnore
 	private Client client;
 
-	private Boolean feedBack;
+	private boolean boolFeedBack;
 
 	private String feedBackText;
 
@@ -44,7 +44,7 @@ public class FeedBack implements Serializable {
 
 	/**
 	 * Getter du client
-	 * 
+	 *
 	 * @return un client
 	 */
 	public Client getClient() {
@@ -53,7 +53,7 @@ public class FeedBack implements Serializable {
 
 	/**
 	 * Getter d'un commentaire (feedBackText)
-	 * 
+	 *
 	 * @return feedBackText le commentaire
 	 */
 	public String getFeedBackText() {
@@ -62,7 +62,7 @@ public class FeedBack implements Serializable {
 
 	/**
 	 * Getter de l'id d'un feedback
-	 * 
+	 *
 	 * @return l'id du feedback
 	 */
 	public Integer getId() {
@@ -71,7 +71,7 @@ public class FeedBack implements Serializable {
 
 	/**
 	 * Getter du sondage (survey)
-	 * 
+	 *
 	 * @return survey :le sondage
 	 */
 	public Survey getSurvey() {
@@ -82,16 +82,16 @@ public class FeedBack implements Serializable {
 	 * Méthode permettant de savoir si un commentaire est présent ou non. C'est un
 	 * boolean. S'il est true il y a un commentaire. S'il est false c'est qu'il n'y
 	 * a pas de commentaire.
-	 * 
+	 *
 	 * @return feedback le boolean(présence ou absence d'un commentaire).
 	 */
 	public boolean isFeedback() {
-		return this.feedBack;
+		return this.boolFeedBack;
 	}
 
 	/**
 	 * Setter d'un client
-	 * 
+	 *
 	 * @param client
 	 *            le client créer
 	 */
@@ -102,17 +102,17 @@ public class FeedBack implements Serializable {
 	/**
 	 * Setter du boolen feedback. FeedBack est true s'il y a un commentaire ou false
 	 * s'il n'y en a pas.
-	 * 
+	 *
 	 * @param feedback
 	 *            le boolen (présence ou absence de commentaire)
 	 */
-	public void setFeedback(final Boolean feedback) {
-		this.feedBack = feedback;
+	public void setFeedback(final boolean feedback) {
+		this.boolFeedBack = feedback;
 	}
 
 	/**
 	 * Setter de FeedBackText, le commentaire
-	 * 
+	 *
 	 * @param feedBackText
 	 *            le commentaire à créer.
 	 */
@@ -122,7 +122,7 @@ public class FeedBack implements Serializable {
 
 	/**
 	 * Setter de l'id d'un feedback
-	 * 
+	 *
 	 * @param id
 	 *            l'identifiant d'un feedback
 	 */
@@ -132,7 +132,7 @@ public class FeedBack implements Serializable {
 
 	/**
 	 * Setter d'un sondage (survey)
-	 * 
+	 *
 	 * @param survey
 	 *            le sondage
 	 */

@@ -16,12 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.gtm.project.proxibanque.business.FeedbackService;
 import fr.gtm.project.proxibanque.domain.FeedBack;
 
+/**
+ * Controlleur REST des commentaires (feedback)
+ * 
+ * @author Nadir && Faouzi && Fabien
+ *
+ */
 @RestController
 @RequestMapping("/feedback")
 public class FeedBackRestController {
 
 	@Autowired
-	private FeedbackService FBservice;
+	private FeedbackService feedBservice;
 
 	/**
 	 * WebService POST permettant de créer en persistence un nouveau commentaire
@@ -33,7 +39,7 @@ public class FeedBackRestController {
 	 */
 	@PostMapping({ "", "/" })
 	public FeedBack create(@RequestBody final FeedBack feedBack) {
-		return this.FBservice.create(feedBack);
+		return this.feedBservice.create(feedBack);
 	}
 
 	/**
@@ -46,7 +52,7 @@ public class FeedBackRestController {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable final Integer id) {
-		this.FBservice.delete(id);
+		this.feedBservice.delete(id);
 	}
 
 	/**
@@ -57,7 +63,7 @@ public class FeedBackRestController {
 	 */
 	@RequestMapping("/")
 	public List<FeedBack> list() {
-		return this.FBservice.list();
+		return this.feedBservice.list();
 	}
 
 	/**
@@ -71,8 +77,8 @@ public class FeedBackRestController {
 	 */
 	@RequestMapping("/{id}")
 	public FeedBack read(@PathVariable final Integer id) {
-		if (this.FBservice.read(id) != null) {
-			return this.FBservice.read(id);
+		if (this.feedBservice.read(id) != null) {
+			return this.feedBservice.read(id);
 		}
 		return null;
 	}
@@ -87,7 +93,7 @@ public class FeedBackRestController {
 	 */
 	@PutMapping({ "", "/" })
 	public FeedBack update(@RequestBody final FeedBack feedBack) {
-		return this.FBservice.update(feedBack);
+		return this.feedBservice.update(feedBack);
 	}
 
 }

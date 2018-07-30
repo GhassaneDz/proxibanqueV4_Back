@@ -18,6 +18,12 @@ import fr.gtm.project.proxibanque.domain.CloseDateException;
 import fr.gtm.project.proxibanque.domain.EndDateException;
 import fr.gtm.project.proxibanque.domain.Survey;
 
+/**
+ * IndexController permet de dispatcher les requetes HTTP concernant BackEnd
+ *
+ * @author Nadir && Faouzi && Fabien
+ *
+ */
 @Controller
 public class IndexController {
 
@@ -28,10 +34,17 @@ public class IndexController {
 	private SurveyService surveyService;
 
 	/**
-	 * Methode de création d'un survey
-	 * @param startDate Date de début du survey
-	 * @param endDate Date de fin du survey
-	 * @param ra Pour effectuer une redirection avec les paramètres
+	 * La méthode createSurvey est la méthode de création d'un sondage à partir du
+	 * formulaire de la page d'acceuil. Cette méthode vérifie si la date de fin
+	 * postée est bien plus ancienne que la date de début du sondage.
+	 *
+	 * @param startDate
+	 *            Date de début du sondage
+	 * @param endDate
+	 *            Date de fin du sondage
+	 * @param ra
+	 *            Message d'erreur transmis par l'URL si erreur (date de fin plus
+	 *            ancienne que la date de début du sondage.)
 	 * @return Un mav avec le survey demandé
 	 */
 	@PostMapping({ "/", "/index" })
@@ -53,9 +66,14 @@ public class IndexController {
 	}
 
 	/**
-	 * Affichage d'une page de feedback d'un survey
-	 * @param id Pour affiche un feedback spécifique
-	 * @return Une page de détail de feedback d'un survey
+	 * Méthode d'affichage de la liste des commentaires pour un sondage spécifique
+	 *
+	 * @param id
+	 *            l'id du sondage. un appel au service comenatire permet de
+	 *            récupérer le décompte des commentaires positifs ou négatif de ce
+	 *            sondage.
+	 *
+	 * @return Une page de détail des commentaires d'un sondage
 	 */
 	@GetMapping({ "/DetailsSurvey" })
 	public ModelAndView detailsSurvey(@RequestParam("id") final Integer id) {
@@ -67,9 +85,12 @@ public class IndexController {
 	}
 
 	/**
-	 * Affichage d'un survey spécifique
-	 * @param id Pour trouver un survey spécifique
-	 * @return Une page détail correspondante à l'id du survey
+	 * Méthode d'affichage d'un sondage spécifique. Elle permet d'afficher le
+	 * sondage à éditer, c'est à dire la date de cloture du sondage.
+	 *
+	 * @param id
+	 *            Pour trouver le survey à cloturer
+	 * @return la page permettant de cloturer le sondage
 	 */
 	@GetMapping({ "/EditSurvey" })
 	public ModelAndView editSurvey(@RequestParam("id") final Integer id) {
@@ -79,12 +100,22 @@ public class IndexController {
 	}
 
 	/**
-	 * Affichage d'un survey avec toutes ces informations
-	 * @param startDate Date de démarrage actuel du survey
-	 * @param endDate Date de fin actuel du survey
-	 * @param closeDate Date de fermeture du survey
-	 * @param id Identifiant correspondant au survey
-	 * @param ra Traitement de la redirection avec les paramètres
+	 * Méthode de mise à jour d'un sondage. Cette méthode récupère la date de début,
+	 * de fin et de cloture (nouvellement proposé par le gestionnaire) Cette méthode
+	 * vérifie si la date de cloture postée est bien plus ancienne que la date de
+	 * début du sondage.
+	 *
+	 * @param startDate
+	 *            Date de démarrage actuel du sondage
+	 * @param endDate
+	 *            Date de fin actuel du sondage
+	 * @param closeDate
+	 *            Date de cloture du sondage
+	 * @param id
+	 *            Identifiant correspondant au sondage à mettre à jour
+	 * @param ra
+	 *            Message d'erreur transmis par l'URL si erreur (date de cloture
+	 *            plus ancienne que la date de début du sondage.)
 	 * @return La page d'edition du survey
 	 */
 	@PostMapping("/EditSurvey")
@@ -115,7 +146,10 @@ public class IndexController {
 	}
 
 	/**
-	 * Ahhichage de tout les survey dans la page d'acceuil
+	 * Méthode d'affichage de l'entièreté des sondages dans la page d'acceuil. Cette
+	 * méthode vérifie directement si un sondage est en cours ou non. Celà permet
+	 * d'empécher la création d'un nouveau sondage le cas échéant.
+	 *
 	 * @return La page d'acceuil index avec la liste des survey
 	 */
 	@GetMapping("/index")
@@ -128,5 +162,4 @@ public class IndexController {
 		mav.addObject("isActualSurveyExist", isActualSurveyExist);
 		return mav;
 	}
-
 }

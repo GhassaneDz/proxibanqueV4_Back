@@ -33,8 +33,8 @@ ul > li {
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="feedback" items="${feedBackText}">
 							<td>
+							<c:forEach var="feedback" items="${feedBackText}">
 								<ul>
 								<c:choose>
 								    <c:when test="${empty feedback.feedBackText}">
@@ -45,8 +45,8 @@ ul > li {
 							         </c:otherwise>
 								</c:choose>
 								</ul>
-							</td>
 							</c:forEach>
+							</td>
 							<td>${feedPosCount}</td>
 							<td>${feedNegCount}</td>
 						</tbody>

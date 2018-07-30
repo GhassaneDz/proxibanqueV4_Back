@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.gtm.project.proxibanque.business.ClientService;
 import fr.gtm.project.proxibanque.domain.Client;
 
+/**
+ * Controlleur REST des clients
+ *
+ * @author Nadir && Faouzi && Fabien
+ *
+ */
 @RestController
 @RequestMapping("/client")
 public class ClientRestController {
@@ -78,7 +84,7 @@ public class ClientRestController {
 	 * @param client
 	 *            Client à mettre à jours
 	 *
-	 * 
+	 *
 	 * @return client Le client mis à jour avec les nouvelles informations
 	 */
 	@PutMapping({ "", "/" })

@@ -93,7 +93,7 @@ public class Survey implements Serializable {
 
 	/**
 	 * Getter de la StartDate
-	 * 
+	 *
 	 * @return la date de début du sondage
 	 */
 	public LocalDate getStartDate() {
@@ -102,7 +102,7 @@ public class Survey implements Serializable {
 
 	/**
 	 * Setter de la CloseDate
-	 * 
+	 *
 	 * @param closeDate
 	 *            la date de fermeture du sondage
 	 *
@@ -113,7 +113,7 @@ public class Survey implements Serializable {
 
 	/**
 	 * Setter de la EndDate
-	 * 
+	 *
 	 * @param endDate
 	 *            la date de fin du sondage
 	 *
@@ -124,7 +124,7 @@ public class Survey implements Serializable {
 
 	/**
 	 * Setter des feedbacks
-	 * 
+	 *
 	 * @param feedBacks
 	 *            la liste des commentaires du sondage
 	 *
@@ -135,7 +135,7 @@ public class Survey implements Serializable {
 
 	/**
 	 * Setter de l'id de la survey
-	 * 
+	 *
 	 * @param id
 	 *            l'identifiant de la classe Survey
 	 *
@@ -146,7 +146,7 @@ public class Survey implements Serializable {
 
 	/**
 	 * Setter de la StartDate
-	 * 
+	 *
 	 * @param startDate
 	 *            la date de début du sondage
 	 *
