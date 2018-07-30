@@ -20,9 +20,11 @@ public class SurveyService {
 
 	/**
 	 *
-	 * @param entity Nouveau survey à crée en paramètre
+	 * @param entity
+	 *            Nouveau survey à crée en paramètre
 	 * @return La création du nouveau survey si aucune erreur est thrown
-	 * @throws EndDateException Validation de la date de clôture
+	 * @throws EndDateException
+	 *             Validation de la date de clôture
 	 */
 	public Survey create(final Survey entity) throws EndDateException {
 		if (entity.getEndDate().isBefore(entity.getStartDate())) {
@@ -34,7 +36,8 @@ public class SurveyService {
 
 	/**
 	 *
-	 * @param id Identifiant du survey à supprimer
+	 * @param id
+	 *            Identifiant du survey à supprimer
 	 */
 	public void delete(final Integer id) {
 		this.repo.deleteById(id);
@@ -69,7 +72,7 @@ public class SurveyService {
 		final LocalDate today = LocalDate.now();
 		final List<Survey> listSurvey = this.list();
 		for (final Survey survey : listSurvey) {
-			if (survey.getCloseDate() == null || survey.getEndDate().isAfter(today)) {
+			if ((survey.getCloseDate() == null) || survey.getEndDate().isAfter(today)) {
 				isSurveyCurrent = survey.getId();
 			}
 		}
@@ -87,7 +90,8 @@ public class SurveyService {
 
 	/**
 	 *
-	 * @param id du survey spécifique
+	 * @param id
+	 *            du survey spécifique
 	 * @return le survey correspondant à l'id
 	 */
 	public Survey read(final Integer id) {
@@ -101,9 +105,12 @@ public class SurveyService {
 
 	/**
 	 *
-	 * @param entity Le survey à mettre à jours
+	 * @param entity
+	 *            Le survey à mettre à jours
 	 * @return Le survey avec les changements
-	 * @throws CloseDateException Pour ne pas attribuer une date de clôture antérieur à la date de publication
+	 * @throws CloseDateException
+	 *             Pour ne pas attribuer une date de clôture antérieur à la date de
+	 *             publication
 	 */
 	public Survey update(final Survey entity) throws CloseDateException {
 		if (entity.getCloseDate().isBefore(entity.getStartDate())) {
