@@ -77,6 +77,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
+	 * getter de l'identifiant du survey
+	 * 
 	 * @return l'identifient de la classe Survey
 	 */
 	public Integer getId() {
@@ -91,7 +93,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
-	 * @param closeDate la date de fermeture du sondage
+	 * @param closeDate
+	 *            la date de fermeture du sondage
 	 *
 	 */
 	public void setCloseDate(final LocalDate closeDate) {
@@ -99,7 +102,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
-	 * @param endDate la date de fin du sondage
+	 * @param endDate
+	 *            la date de fin du sondage
 	 *
 	 */
 	public void setEndDate(final LocalDate endDate) {
@@ -107,7 +111,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
-	 * @param feedBacks la liste des commentaires du sondage
+	 * @param feedBacks
+	 *            la liste des commentaires du sondage
 	 *
 	 */
 	public void setFeedBacks(final List<FeedBack> feedBacks) {
@@ -115,7 +120,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
-	 * @param id l'identifient de la classe Survey
+	 * @param id
+	 *            l'identifient de la classe Survey
 	 *
 	 */
 	public void setId(final Integer id) {
@@ -123,7 +129,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
-	 * @param startDate la date de début du sondage
+	 * @param startDate
+	 *            la date de début du sondage
 	 *
 	 */
 	public void setStartDate(final LocalDate startDate) {

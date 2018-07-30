@@ -17,7 +17,8 @@ public class ClientService {
 
 	/**
 	 *
-	 * @param entity Le client à crée
+	 * @param entity
+	 *            Le client à crée
 	 * @return La création du client
 	 */
 	public Client create(final Client entity) {
@@ -26,10 +27,15 @@ public class ClientService {
 
 	/**
 	 *
-	 * @param id Le client spécifique à supprimer
+	 * @param id
+	 *            Le client spécifique à supprimer
 	 */
 	public void delete(final Integer id) {
 		this.repo.deleteById(id);
+	}
+
+	public Client findClientByNumber(final Integer id) {
+		return this.repo.findClientByNumber(id);
 	}
 
 	/**
@@ -42,7 +48,8 @@ public class ClientService {
 
 	/**
 	 *
-	 * @param id Du client spécifique à afficher
+	 * @param id
+	 *            Du client spécifique à afficher
 	 * @return Le client spécifique à l'id
 	 */
 	public Client read(final Integer id) {
@@ -56,7 +63,8 @@ public class ClientService {
 
 	/**
 	 *
-	 * @param entity Le client à mettre à jours
+	 * @param entity
+	 *            Le client à mettre à jours
 	 * @return Le client à jours
 	 */
 	public Client update(final Client entity) {
