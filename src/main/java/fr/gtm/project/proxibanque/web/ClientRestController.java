@@ -24,8 +24,10 @@ public class ClientRestController {
 	private ClientService service;
 
 	/**
-	 *
-	 * @param client Client à crée
+	 * WebService
+	 * 
+	 * @param client
+	 *            Client à crée
 	 * @return La création du client
 	 */
 	@PostMapping({ "", "/" })
@@ -36,7 +38,8 @@ public class ClientRestController {
 
 	/**
 	 *
-	 * @param id Client à supprimé
+	 * @param id
+	 *            Client à supprimé
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/delete/{id}")
@@ -55,7 +58,8 @@ public class ClientRestController {
 
 	/**
 	 *
-	 * @param id Client spécifique à afficher
+	 * @param id
+	 *            Client spécifique à afficher
 	 * @return Le client à afficher
 	 */
 	@RequestMapping("/read/{id}")
@@ -68,7 +72,8 @@ public class ClientRestController {
 
 	/**
 	 *
-	 * @param client Client à mettre à jours
+	 * @param client
+	 *            Client à mettre à jours
 	 * @return Le client à jours
 	 */
 	@PutMapping({ "", "/" })

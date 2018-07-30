@@ -16,6 +16,7 @@ public class ClientService {
 	private ClientRepository repo;
 
 	/**
+	 * Méthode de création d'un client
 	 *
 	 * @param entity
 	 *            Le client à crée
@@ -26,19 +27,29 @@ public class ClientService {
 	}
 
 	/**
+	 * Methode de suppresion d'un client
 	 *
 	 * @param id
 	 *            Le client spécifique à supprimer
+	 *
 	 */
 	public void delete(final Integer id) {
 		this.repo.deleteById(id);
 	}
 
+	/**
+	 * Méthode de recherche d'un numéro de client à partir de son Id
+	 *
+	 * @param id
+	 *            l'id du client
+	 * @return le numéro du client
+	 */
 	public Client findClientByNumber(final Integer id) {
 		return this.repo.findClientByNumber(id);
 	}
 
 	/**
+	 * Méthode de listing de tous les clients
 	 *
 	 * @return La liste des clients
 	 */
@@ -47,10 +58,11 @@ public class ClientService {
 	}
 
 	/**
+	 * Méthode d'affichage d'un client à partir de son Id
 	 *
 	 * @param id
 	 *            Du client spécifique à afficher
-	 * @return Le client spécifique à l'id
+	 * @return Le client d'après son Id
 	 */
 	public Client read(final Integer id) {
 		Client result = null;
@@ -62,10 +74,11 @@ public class ClientService {
 	}
 
 	/**
+	 * Mise à jour d'un client à partir de sont Id.
 	 *
 	 * @param entity
-	 *            Le client à mettre à jours
-	 * @return Le client à jours
+	 *            Le client à mettre à jour
+	 * @return Le client à jour est enregistré en BDD
 	 */
 	public Client update(final Client entity) {
 		return this.repo.save(entity);
