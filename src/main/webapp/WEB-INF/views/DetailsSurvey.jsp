@@ -36,12 +36,19 @@ ul > li {
 							<c:forEach var="feedback" items="${feedBackText}">
 							<td>
 								<ul>
-									<li><c:out value="${feedback.feedBackText}" /></li>
+								<c:choose>
+								    <c:when test="${empty feedback.feedBackText}">
+								        <h2>0dd</h2>
+								    </c:when>
+							         <c:otherwise>
+							            <li><c:out value="${feedback.feedBackText}" /></li>
+							         </c:otherwise>
+								</c:choose>
 								</ul>
-								</td>
+							</td>
 							</c:forEach>
-								<td>${feedPosCount}</td>
-								<td>${feedNegCount}</td>
+							<td>${feedPosCount}</td>
+							<td>${feedNegCount}</td>
 						</tbody>
 					</table>
 				</div>
