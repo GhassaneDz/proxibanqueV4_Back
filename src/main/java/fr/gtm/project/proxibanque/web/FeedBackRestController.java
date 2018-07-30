@@ -24,8 +24,11 @@ public class FeedBackRestController {
 	private FeedbackService FBservice;
 
 	/**
+	 * WebService POST permettant de créer en persistence un nouveau commentaire
+	 * (feedback)
 	 *
-	 * @param feedBack Pour la création d'un feedback
+	 * @param feedBack
+	 *            Pour la création d'un feedback
 	 * @return Le feedback à crée
 	 */
 	@PostMapping({ "", "/" })
@@ -34,8 +37,11 @@ public class FeedBackRestController {
 	}
 
 	/**
+	 * WebService permettant la suppression d'un commentaire en persistence à partir
+	 * de son Id
 	 *
-	 * @param id Pour la suppréssion d'un feedback spécifique
+	 * @param id
+	 *            Pour la supression d'un feedback spécifique
 	 */
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
@@ -44,6 +50,8 @@ public class FeedBackRestController {
 	}
 
 	/**
+	 * WebService permettant de retourner la liste des commentaires présents en
+	 * persistence
 	 *
 	 * @return La liste des feedback
 	 */
@@ -53,9 +61,13 @@ public class FeedBackRestController {
 	}
 
 	/**
+	 * WebService permettant l'affichage d'un commentaire à partir d'un Id présent
+	 * dans la Variable Path. Soit l'id est Null et la méthode renvoie un
+	 * commentaire vide, soit l'id est présent et la méthode renvoie le commentaire.
 	 *
-	 * @param id Pour la lecture d'un feedback spécifique
-	 * @return Le feedback spécifique à l'id
+	 * @param id
+	 *            numéro d'identification d'un commentaire permettant son affichage
+	 * @return Le commentaire spécifique à l'id
 	 */
 	@RequestMapping("/{id}")
 	public FeedBack read(@PathVariable final Integer id) {
@@ -66,9 +78,12 @@ public class FeedBackRestController {
 	}
 
 	/**
-	 *
-	 * @param feedBack Pour la mise à jours d'un feedback
-	 * @return Le feedback avec les informations associés
+	 * WebService permettant la mise à jour d'un commentaire en persistence
+	 * 
+	 * @param feedBack
+	 *            est le commentaire à mettre à jour
+	 * 
+	 * @return Le feedback avec les informations misent à jour
 	 */
 	@PutMapping({ "", "/" })
 	public FeedBack update(@RequestBody final FeedBack feedBack) {

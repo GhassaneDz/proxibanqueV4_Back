@@ -19,11 +19,12 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = { "fr.gtm.project.proxibanque.web", "fr.gtm.project.proxibanque.business" })
 @EnableJpaRepositories(basePackages = { "fr.gtm.project.proxibanque.dao" })
 public class MvcConfig extends WebMvcConfigurerAdapter {
+	private final Integer maxAge = 3600;
 
 	@Override
 	public void addCorsMappings(final CorsRegistry registry) {
 		registry.addMapping("/**").allowedOrigins("*").allowedMethods("*").allowedHeaders("*").allowCredentials(true)
-				.maxAge(3600);
+				.maxAge(this.maxAge);
 	}
 
 	@Bean
@@ -35,8 +36,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public PlatformTransactionManager transactionManager() {
-		final PlatformTransactionManager tm = new JpaTransactionManager(this.entityManagerFactory().getObject());
-		return tm;
+		return new JpaTransactionManager(this.entityManagerFactory().getObject());
 	}
 
 	@Bean

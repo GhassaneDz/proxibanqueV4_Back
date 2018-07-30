@@ -56,6 +56,8 @@ public class Survey implements Serializable {
 	private LocalDate startDate;
 
 	/**
+	 * Getter de la méthode CloseDate
+	 *
 	 * @return la date de fermeture du sondage
 	 */
 	public LocalDate getCloseDate() {
@@ -63,6 +65,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
+	 * Getter de la méthode EndDate
+	 *
 	 * @return la date de fin du sondage
 	 */
 	public LocalDate getEndDate() {
@@ -70,7 +74,9 @@ public class Survey implements Serializable {
 	}
 
 	/**
-	 * @return la liste des commentaires pour un sondage
+	 * Getter de la méthode Liste qui renvoie la liste des commentaires
+	 *
+	 * @return feedbacks la liste des commentaires pour un sondage
 	 */
 	public List<FeedBack> getFeedBacks() {
 		return this.feedBacks;
@@ -78,14 +84,16 @@ public class Survey implements Serializable {
 
 	/**
 	 * getter de l'identifiant du survey
-	 * 
-	 * @return l'identifient de la classe Survey
+	 *
+	 * @return id l'identifient de la classe Survey
 	 */
 	public Integer getId() {
 		return this.id;
 	}
 
 	/**
+	 * Getter de la StartDate
+	 * 
 	 * @return la date de début du sondage
 	 */
 	public LocalDate getStartDate() {
@@ -93,6 +101,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
+	 * Setter de la CloseDate
+	 * 
 	 * @param closeDate
 	 *            la date de fermeture du sondage
 	 *
@@ -102,6 +112,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
+	 * Setter de la EndDate
+	 * 
 	 * @param endDate
 	 *            la date de fin du sondage
 	 *
@@ -111,6 +123,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
+	 * Setter des feedbacks
+	 * 
 	 * @param feedBacks
 	 *            la liste des commentaires du sondage
 	 *
@@ -120,8 +134,10 @@ public class Survey implements Serializable {
 	}
 
 	/**
+	 * Setter de l'id de la survey
+	 * 
 	 * @param id
-	 *            l'identifient de la classe Survey
+	 *            l'identifiant de la classe Survey
 	 *
 	 */
 	public void setId(final Integer id) {
@@ -129,6 +145,8 @@ public class Survey implements Serializable {
 	}
 
 	/**
+	 * Setter de la StartDate
+	 * 
 	 * @param startDate
 	 *            la date de début du sondage
 	 *

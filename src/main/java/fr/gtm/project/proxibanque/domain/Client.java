@@ -35,7 +35,7 @@ public class Client implements Serializable {
 	private String tel;
 
 	/**
-	 * getter de l'email du client
+	 * Getter de l'email du client
 	 *
 	 * @return email l'email du client
 	 */
@@ -71,7 +71,7 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * getter de l'identifiant du client à 8 chiffre
+	 * Getter de l'identifiant du client à 8 chiffre
 	 *
 	 * @return number, l'identifiant du client
 	 */
@@ -89,7 +89,7 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * setter de l'email du client
+	 * Setter de l'email du client
 	 *
 	 * @param email
 	 *            l'mail du client
@@ -99,7 +99,7 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * setter du firstName du client
+	 * Setter du firstName du client
 	 *
 	 * @param firstName
 	 *            le firstName du client
@@ -129,7 +129,7 @@ public class Client implements Serializable {
 	}
 
 	/**
-	 * setter de l'identifiant du client
+	 * Setter de l'identifiant du client
 	 *
 	 * @param number
 	 *            l'identifiant du client
