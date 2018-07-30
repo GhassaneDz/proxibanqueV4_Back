@@ -35,7 +35,7 @@
 					  Vous ne pouvez pas créer un nouveau sondage car il existe un sondage en cours. Cloturez le sondage actuel pour pouvoir en créer un nouveau.
 					</div>
 				</c:if>
-				<c:if test="${endDateExc != null}">
+				<c:if test="${not empty endDateExc }">
 					<div class="alert alert-warning col-md-8">
 						<strong>Attention!</strong>${endDateExc}
 					</div>

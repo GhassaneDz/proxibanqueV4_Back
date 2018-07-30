@@ -36,7 +36,11 @@ public class SurveyService {
 		final List<Survey> listSurvey = this.list();
 		for (final Survey survey : listSurvey) {
 			if (today.isAfter(survey.getStartDate()) && today.isBefore(survey.getEndDate())) {
-				result = survey.getId();
+				if (survey.getCloseDate() == null) {
+					result = survey.getId();
+				} else {
+					result = 0;
+				}
 			}
 		}
 		return result;
