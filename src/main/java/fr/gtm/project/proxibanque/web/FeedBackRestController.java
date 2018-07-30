@@ -29,7 +29,7 @@ public class FeedBackRestController {
 	 * @return Le feedback à crée
 	 */
 	@PostMapping({ "", "/" })
-	public FeedBack create(@PathVariable final FeedBack feedBack) {
+	public FeedBack create(@RequestBody final FeedBack feedBack) {
 		return this.FBservice.create(feedBack);
 	}
 
@@ -72,7 +72,7 @@ public class FeedBackRestController {
 	 */
 	@PutMapping({ "", "/" })
 	public FeedBack update(@RequestBody final FeedBack feedBack) {
-	   return this.FBservice.update(feedBack);
+		return this.FBservice.update(feedBack);
 	}
 
 }

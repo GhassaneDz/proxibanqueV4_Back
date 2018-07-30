@@ -14,23 +14,25 @@
 <div class="container">
 	<h2>Ajouter un sondage</h2>
 	<div class="container-fluid">
-		<form method="post">
+		<form method="post" class="needs-validation">
 			    <div class="col-md-4">
 			        <div class="form-group">
 		            	<label for="startDate">StartDate : </label>
-		                <input name="startDate" type="date" class="form-control" id="startDate" required="required" />
+		                <input name="startDate" type="date" class="form-control" id="startDate" required="required" >
+		                <div class="invalid-feedback">Merci de remplir ce champ pour validation</div>
 			        </div>
 			    </div>
 			    <div class="col-md-4">
 			        <div class="form-group">
 		            	<label for="endDate">EndDate : </label>
-		                <input name="endDate" type="date" class="form-control" id="endDate" required="required" />
+		                <input name="endDate" type="date" class="form-control" id="endDate" required="required" >
+		                <div class="invalid-feedback">Merci de remplir ce champ pour validation</div>
 			        </div>
 			    </div>
 			    <c:if test="${isActualSurveyExist != 0}">
-					<button type="submit" class="btn btn-success" disabled="disabled">Valider</button>
+					<button type="submit" class="btn btn-success" disabled="disabled">Valider</button><hr>
 					<div class="alert alert-warning col-md-8">
-					  <strong>Attention!</strong> Vous ne pouvez pas créer un nouveau sondage car il existe un sondage en cours. Cloturez le sondage actuel pour pouvoir en créer un nouveau.
+					  Vous ne pouvez pas créer un nouveau sondage car il existe un sondage en cours. Cloturez le sondage actuel pour pouvoir en créer un nouveau.
 					</div>
 				</c:if>
 				<c:if test="${endDateExc != null}">
@@ -43,7 +45,7 @@
 				</c:if>		    
 		</form>
 	</div>
-	<hr>
+	<br><hr>
 	<h2>Sondage en cours</h2>	
 	<table id="customers">
 		<tr>
