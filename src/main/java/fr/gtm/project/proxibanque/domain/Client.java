@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.validator.constraints.Length;
-
 /**
  * @author Nadir && Faouzi && Fabien
  * @version 4.0 Classe de Client avec en attributs un id, firstName (Prénom),
@@ -31,8 +29,7 @@ public class Client implements Serializable {
 	private Integer id;
 	@Column
 	private String lastName;
-	@Column
-	@Length(max = 8, message = "L'identifiant doit comporter 8 caractères")
+	@Column(length = 8)
 	private String number;
 	@Column
 	private String tel;

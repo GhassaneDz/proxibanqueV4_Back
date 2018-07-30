@@ -1,5 +1,7 @@
 package fr.gtm.project.proxibanque.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,10 +15,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "feedBack")
-public class FeedBack {
+public class FeedBack implements Serializable {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@OneToOne
-	@JoinColumn(name = "idClient", referencedColumnName = "id")
+	@JoinColumn(name = "idClient", referencedColumnName = "id", nullable = false)
 	@JsonIgnore
 	private Client client;
 

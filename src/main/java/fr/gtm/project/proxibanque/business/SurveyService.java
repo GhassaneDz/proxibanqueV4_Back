@@ -42,20 +42,6 @@ public class SurveyService {
 		return result;
 	}
 
-	// // récupère le sondage si la StartDate est égale à la date actuelle
-	// public Survey getActualSurveyHOME() {
-	// Survey result = null;
-	// final LocalDate today = LocalDate.now();
-	// final List<Survey> surveys = this.list();
-	// for (final Survey survey : surveys) {
-	// if (today.isAfter(survey.getStartDate()) &&
-	// today.isBefore(survey.getEndDate())) {
-	// result = survey;
-	// }
-	// }
-	// return result;
-	// }
-
 	public int isSurveyClosable() {
 		int isSurveyCurrent = 0;
 		final LocalDate today = LocalDate.now();

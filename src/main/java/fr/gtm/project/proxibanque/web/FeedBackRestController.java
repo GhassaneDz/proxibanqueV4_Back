@@ -1,9 +1,6 @@
 package fr.gtm.project.proxibanque.web;
 
-import java.io.IOException;
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.gtm.project.proxibanque.business.FeedbackService;
 import fr.gtm.project.proxibanque.domain.FeedBack;
-import fr.gtm.project.proxibanque.domain.Survey;
 
 @RestController
 @RequestMapping("/feedback")
@@ -28,7 +24,7 @@ public class FeedBackRestController {
 	private FeedbackService FBservice;
 
 	@PostMapping({ "", "/" })
-	public FeedBack create(@PathVariable final FeedBack feedBack) {
+	public FeedBack create(@RequestBody final FeedBack feedBack) {
 		return this.FBservice.create(feedBack);
 	}
 
@@ -53,7 +49,7 @@ public class FeedBackRestController {
 
 	@PutMapping({ "", "/" })
 	public FeedBack update(@RequestBody final FeedBack feedBack) {
-	   return this.FBservice.update(feedBack);
+		return this.FBservice.update(feedBack);
 	}
 
 }

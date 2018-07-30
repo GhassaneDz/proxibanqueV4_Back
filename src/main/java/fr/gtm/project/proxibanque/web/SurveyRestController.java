@@ -54,6 +54,12 @@ public class SurveyRestController {
 		this.service.delete(id);
 	}
 
+	@RequestMapping("/{id}")
+	public Survey getSurveyId(@PathVariable final Integer id) {
+
+		return this.service.read(id);
+	}
+
 	@RequestMapping("/surveys")
 	public List<Survey> list() {
 		return this.service.list();

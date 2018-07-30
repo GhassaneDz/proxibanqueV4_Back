@@ -27,28 +27,29 @@ public class Survey implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
 	@Column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-
-	@Column(nullable = false)
 	@JsonFormat(pattern = "dd-mm-yyyy")
 	@JsonDeserialize(using = LocalDateDeserializer.class)
 	@JsonSerialize(using = LocalDateSerializer.class)
 	private LocalDate closeDate;
 
-	@Column(nullable = false)
+	@Column
 	@JsonFormat(pattern = "dd-mm-yyyy")
 	@JsonDeserialize(using = LocalDateDeserializer.class)
 	@JsonSerialize(using = LocalDateSerializer.class)
 	private LocalDate endDate;
 
 	@OneToMany(mappedBy = "survey", fetch = FetchType.EAGER)
+	@Column
 	@JsonIgnore
 	private List<FeedBack> feedBacks;
 
-	@Column(nullable = false)
+	@Id
+	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@Column
 	@JsonFormat(pattern = "dd-mm-yyyy")
 	@JsonDeserialize(using = LocalDateDeserializer.class)
 	@JsonSerialize(using = LocalDateSerializer.class)

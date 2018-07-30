@@ -12,7 +12,7 @@
 <body>
 <h1 align="center">Gestion des Sondages</h1>
 <div class="container">
-	<h2>Editer le sondage</h2>
+	<h2>Fermer le sondage en cours</h2>
 	<div class="container-fluid">
 		<form method="post">
 			<div class="container">

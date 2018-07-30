@@ -31,7 +31,6 @@ public class IndexController {
 	public ModelAndView createSurvey(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate startDate,
 			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") final LocalDate endDate,
 			final RedirectAttributes ra) {
-
 		String messageCloseDateExc = "";
 		final Survey survey = new Survey();
 		survey.setStartDate(startDate);
