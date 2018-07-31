@@ -17,7 +17,7 @@
 		</layout>
 	</appender>
 
-     <logger name="fr.gtm.project.proxibanque" level="debug"
+     <logger name="fr.gtm.project.proxibanque" level="info"
 		additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
@@ -28,12 +28,7 @@
 		
 	<appender-ref ref="STDOUT" />
 	</logger>
-	
-	<logger name="org.hibernate" level="debug"
-		additivity="false">
-		<appender-ref ref="STDOUT" />
-	</logger>
-   
+	  
 	
 	<root level="info">
 		<appender-ref ref="STDOUT" />

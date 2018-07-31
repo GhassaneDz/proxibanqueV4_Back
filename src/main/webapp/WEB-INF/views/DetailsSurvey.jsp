@@ -30,6 +30,7 @@ ul > li {
 								<th>Commentaire:</th>
 								<th>Avis positifs</th>
 								<th>Avis négatifs</th>
+								<th>nombre de nouveaux clients</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -49,6 +50,7 @@ ul > li {
 							</td>
 							<td>${feedPosCount}</td>
 							<td>${feedNegCount}</td>
+							<td>${feedNewClient}</td>
 						</tbody>
 					</table>
 				</div>

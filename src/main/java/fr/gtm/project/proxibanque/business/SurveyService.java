@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,8 @@ import fr.gtm.project.proxibanque.domain.Survey;
 
 @Service
 public class SurveyService {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(SurveyService.class);
 
 	@Autowired
 	private SurveyRepository repo;
@@ -66,12 +70,14 @@ public class SurveyService {
 		for (final Survey survey : listSurvey) {
 			if (today.isAfter(survey.getStartDate()) && today.isBefore(survey.getEndDate())) {
 				if (survey.getCloseDate() == null) {
+					SurveyService.LOGGER.info("survey close date : " + survey.getCloseDate());
 					result = survey.getId();
 				} else {
 					result = 0;
 				}
 			}
 		}
+		SurveyService.LOGGER.info("valeur du return = 0" + result);
 		return result;
 	}
 
