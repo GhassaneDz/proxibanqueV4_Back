@@ -27,10 +27,17 @@ public class FeedBack implements Serializable {
 
 	@OneToOne
 	@JoinColumn(name = "idClient", referencedColumnName = "id", nullable = false)
-	@JsonIgnore
 	private Client client;
 
-	private boolean boolFeedBack;
+	private boolean feedback;
+
+	public boolean isNewClients() {
+		return newClients;
+	}
+
+	public void setNewClients(boolean newClients) {
+		this.newClients = newClients;
+	}
 
 	private String feedBackText;
 
@@ -41,6 +48,8 @@ public class FeedBack implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "idSurvey", nullable = false)
 	private Survey survey;
+	
+	boolean newClients ; 
 
 	/**
 	 * Getter du client
@@ -86,7 +95,7 @@ public class FeedBack implements Serializable {
 	 * @return feedback le boolean(présence ou absence d'un commentaire).
 	 */
 	public boolean isFeedback() {
-		return this.boolFeedBack;
+		return this.feedback;
 	}
 
 	/**
@@ -107,7 +116,7 @@ public class FeedBack implements Serializable {
 	 *            le boolen (présence ou absence de commentaire)
 	 */
 	public void setFeedback(final boolean feedback) {
-		this.boolFeedBack = feedback;
+		this.feedback = feedback;
 	}
 
 	/**

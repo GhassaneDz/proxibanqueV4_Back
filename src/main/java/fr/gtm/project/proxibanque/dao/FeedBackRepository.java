@@ -60,5 +60,9 @@ public interface FeedBackRepository extends JpaRepository<FeedBack, Integer> {
 	 */
 	@Query(value = " SELECT * FROM `feedback` WHERE `idSurvey`=?1 AND `feedback` = 1 ", nativeQuery = true)
 	List<FeedBack> findFeedBackByPos(Integer id);
+	
+	@Query(value = " SELECT COUNT(*) FROM `feedback` WHERE `idSurvey` = ?1 AND `newClients` = 1 ; ", nativeQuery = true)
+	Integer getNewClients(Integer id);
+	
 
 }

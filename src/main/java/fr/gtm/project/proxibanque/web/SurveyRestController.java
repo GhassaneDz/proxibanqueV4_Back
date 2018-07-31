@@ -94,7 +94,7 @@ public class SurveyRestController {
 		return this.service.read(id);
 	}
 
-	@RequestMapping("/surveys")
+	@RequestMapping({ "/list" })
 	public List<Survey> list() {
 		return this.service.list();
 	}

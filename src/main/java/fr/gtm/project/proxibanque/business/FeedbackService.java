@@ -115,4 +115,8 @@ public class FeedbackService {
 	public FeedBack update(final FeedBack entity) {
 		return this.repo.save(entity);
 	}
+	
+	public Integer getNbNewClients(Integer id) {
+		return this.repo.getNewClients(id) ;
+	}
 }

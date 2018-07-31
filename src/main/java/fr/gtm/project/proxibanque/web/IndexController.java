@@ -81,7 +81,7 @@ public class IndexController {
 		mav.addObject("feedNegCount", this.feedBackService.feedNegCount(id));
 		mav.addObject("feedPosCount", this.feedBackService.feedPosCount(id));
 		mav.addObject("feedBackText", this.feedBackService.findFeedBackNotNull(id));
-
+		mav.addObject("feedNewClients", this.feedBackService.getNbNewClients(id)) ;
 		return mav;
 	}
 
@@ -153,7 +153,7 @@ public class IndexController {
 	 *
 	 * @return La page d'acceuil index avec la liste des survey
 	 */
-	@GetMapping({ "/", "/index" })
+	@GetMapping("/index")
 	public ModelAndView index() {
 		final ModelAndView mav = new ModelAndView("index");
 		final List<Survey> survey = this.surveyService.list();
